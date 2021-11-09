@@ -44,7 +44,7 @@ namespace IEA_Erproject102AA_Main.BilgiGirisİslemleri.Hastaneler
 
         private void btnCikis_Click(object sender, EventArgs e)
         {
-
+               
         }
 
      
