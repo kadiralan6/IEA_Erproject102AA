@@ -15,9 +15,10 @@ namespace IEA_Erproject102AA_Main.Entity
     public partial class tblCariler
     {
         public int Id { get; set; }
+        public string CariKodu { get; set; }
         public Nullable<int> CariGrupId { get; set; }
         public Nullable<int> CariTipId { get; set; }
-        public string CariAdı { get; set; }
+        public string CariAdi { get; set; }
         public string CariUnvan { get; set; }
         public string Adres1 { get; set; }
         public string Adres2 { get; set; }

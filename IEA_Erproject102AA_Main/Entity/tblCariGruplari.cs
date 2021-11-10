@@ -17,8 +17,8 @@ namespace IEA_Erproject102AA_Main.Entity
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public tblCariGruplari()
         {
-            this.tblCariler = new HashSet<tblCariler>();
             this.tblDepartmanlar = new HashSet<tblDepartmanlar>();
+            this.tblCariler = new HashSet<tblCariler>();
         }
     
         public int Id { get; set; }
@@ -26,8 +26,8 @@ namespace IEA_Erproject102AA_Main.Entity
         public Nullable<bool> isActive { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<tblCariler> tblCariler { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<tblDepartmanlar> tblDepartmanlar { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<tblCariler> tblCariler { get; set; }
     }
 }
