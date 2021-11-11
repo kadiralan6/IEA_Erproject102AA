@@ -1,11 +1,13 @@
 ﻿using IEA_Erproject102AA_Main.Entity;
 using IEA_Erproject102AA_Main.Fonksiyonlar;
+using IEA_Erproject102AA_Main.Properties;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -63,7 +65,9 @@ namespace IEA_Erproject102AA_Main.BilgiGirisİslemleri.Hastaneler
         {
             Liste.Rows.Clear(); // temizleyip yeniden oluştursun
             int i = 0, sira=1;
-            var lst = (from s in erp.tblCariler where s.isActive == true 
+
+            var lst = (from s in erp.tblCariler where s.isActive == true
+                       where s.CariGrupId == 1
                        select new
                        {
                            id = s.Id,
@@ -94,6 +98,7 @@ namespace IEA_Erproject102AA_Main.BilgiGirisİslemleri.Hastaneler
 
         private void btnKayit_Click(object sender, EventArgs e)
         {
+
             YeniKayit();
 
         }
@@ -156,6 +161,7 @@ namespace IEA_Erproject102AA_Main.BilgiGirisİslemleri.Hastaneler
                     erp.SaveChanges();
                     MessageBox.Show("Kayit Başarili");
                     Temizle();
+                   
                     Listele();
                 }
                 else
@@ -169,6 +175,8 @@ namespace IEA_Erproject102AA_Main.BilgiGirisİslemleri.Hastaneler
                 MessageBox.Show(e.Message);
             }
         }
+
+     
 
         private void btnGuncelle_Click(object sender, EventArgs e)
         {
@@ -226,12 +234,21 @@ namespace IEA_Erproject102AA_Main.BilgiGirisİslemleri.Hastaneler
             }
             catch (Exception e)
             {
-
+                MessageBox.Show(e.Message);
             }
         }
 
         private void btnSil_Click(object sender, EventArgs e)
         {
+            if (secimId > 0)
+            {
+                tblCariler hst = erp.tblCariler.Find(secimId);
+                hst.isActive = false;
+                erp.SaveChanges();
+                MessageBox.Show("Silme Başarılı");
+                Temizle();
+                Listele();
+            }
 
         }
         private void btnTemizle_Click(object sender, EventArgs e)
@@ -262,15 +279,25 @@ namespace IEA_Erproject102AA_Main.BilgiGirisİslemleri.Hastaneler
         }
 
         private void Liste_DoubleClick(object sender, EventArgs e)
-        {
-        
+        {              
          secimId = (int?)Liste.CurrentRow.Cells[0].Value ?? -1;
-         Ac(secimId);
-        
+          Ac(secimId);
+            //frmHastanelerListesi frm = new frmHastanelerListesi();
+            //frm.ShowDialog();
+            /* if (Application.OpenForms["frmHastanelerListesi"] != null)
+             {
+                 Temizle();
+             }*/
+            /*if(((frmHastanelerListesi)Application.OpenForms["frmHastanelerListesi"]).Visible == true)
+            {
+                Temizle();
+            }*/
+
         }
 
-        private void Ac(int i)
+        public void Ac(int i)
         {
+            secimId = i;
             try
             {
                 tblCariler hst = erp.tblCariler.Find(i); //sor
@@ -314,6 +341,42 @@ namespace IEA_Erproject102AA_Main.BilgiGirisİslemleri.Hastaneler
                 MessageBox.Show(e.Message);
             }
          
+        }
+
+        protected override void OnLoad(EventArgs e)
+        {
+            var btn = new Button();
+            btn.Size = new Size(25, txtHKoduBul.ClientSize.Height + 0); // 
+            btn.Location = new Point(txtHKoduBul.ClientSize.Width - btn.Width - 1);
+            btn.Cursor = Cursors.Default;
+            btn.Image = Resources.arrow_1176;
+            SendMessage(txtHKoduBul.Handle, 0xd3, (IntPtr)2, (IntPtr)(btn.Width << 16));
+            txtHKoduBul.Controls.Add(btn);
+            base.OnLoad(e);
+            btn.Click += btn_Click;
+        }
+        [DllImport("user32.dll")]
+        private static extern IntPtr SendMessage(IntPtr hWnd, int msh, IntPtr wp, IntPtr lp);
+
+        private void btn_Click(object sender, EventArgs e)
+        {
+            if(Application.OpenForms[""] == null)
+            {
+                frmHastanelerListesi frm = new frmHastanelerListesi();
+                frm.MdiParent = Home.ActiveForm;
+                frm.Show(); 
+            }
+            SendToBack();
+        }
+
+        private void Liste_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void txtAdres1_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

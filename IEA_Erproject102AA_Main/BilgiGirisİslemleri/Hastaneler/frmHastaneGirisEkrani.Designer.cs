@@ -30,18 +30,20 @@ namespace IEA_Erproject102AA_Main.BilgiGirisİslemleri.Hastaneler
         private void InitializeComponent()
         {
             this.pnlUst = new System.Windows.Forms.Panel();
-            this.btnCikis = new System.Windows.Forms.Button();
-            this.btnTemizle = new System.Windows.Forms.Button();
-            this.btnSil = new System.Windows.Forms.Button();
-            this.btnGuncelle = new System.Windows.Forms.Button();
-            this.btnKayit = new System.Windows.Forms.Button();
+            this.lblHastaneKodu = new System.Windows.Forms.Label();
             this.pnlAlt = new System.Windows.Forms.Panel();
             this.Liste = new System.Windows.Forms.DataGridView();
+            this.Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Sıra = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CariKodu = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CariAdi = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CariTel = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CariMail = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CariYetkili = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.splitter1 = new System.Windows.Forms.Splitter();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
@@ -79,14 +81,13 @@ namespace IEA_Erproject102AA_Main.BilgiGirisİslemleri.Hastaneler
             this.txtHastMail = new System.Windows.Forms.TextBox();
             this.txtVergiD = new System.Windows.Forms.TextBox();
             this.pnlOrta = new System.Windows.Forms.Panel();
-            this.lblHastaneKodu = new System.Windows.Forms.Label();
-            this.Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Sıra = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CariKodu = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CariAdi = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CariTel = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CariMail = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CariYetkili = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.txtHKoduBul = new System.Windows.Forms.TextBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.btnCikis = new System.Windows.Forms.Button();
+            this.btnTemizle = new System.Windows.Forms.Button();
+            this.btnSil = new System.Windows.Forms.Button();
+            this.btnGuncelle = new System.Windows.Forms.Button();
+            this.btnKayit = new System.Windows.Forms.Button();
             this.pnlUst.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Liste)).BeginInit();
             this.pnlOrta.SuspendLayout();
@@ -107,71 +108,16 @@ namespace IEA_Erproject102AA_Main.BilgiGirisİslemleri.Hastaneler
             this.pnlUst.Size = new System.Drawing.Size(1242, 79);
             this.pnlUst.TabIndex = 0;
             // 
-            // btnCikis
+            // lblHastaneKodu
             // 
-            this.btnCikis.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnCikis.BackColor = System.Drawing.SystemColors.ButtonFace;
-            this.btnCikis.BackgroundImage = global::IEA_Erproject102AA_Main.Properties.Resources.exit_64;
-            this.btnCikis.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btnCikis.Location = new System.Drawing.Point(1131, 12);
-            this.btnCikis.Name = "btnCikis";
-            this.btnCikis.Size = new System.Drawing.Size(53, 45);
-            this.btnCikis.TabIndex = 3;
-            this.btnCikis.UseVisualStyleBackColor = false;
-            this.btnCikis.Click += new System.EventHandler(this.btnCikis_Click);
-            // 
-            // btnTemizle
-            // 
-            this.btnTemizle.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left)));
-            this.btnTemizle.BackgroundImage = global::IEA_Erproject102AA_Main.Properties.Resources.Sil641;
-            this.btnTemizle.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btnTemizle.Location = new System.Drawing.Point(244, 12);
-            this.btnTemizle.Name = "btnTemizle";
-            this.btnTemizle.Size = new System.Drawing.Size(54, 45);
-            this.btnTemizle.TabIndex = 2;
-            this.btnTemizle.UseVisualStyleBackColor = true;
-            this.btnTemizle.Click += new System.EventHandler(this.btnTemizle_Click);
-            // 
-            // btnSil
-            // 
-            this.btnSil.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left)));
-            this.btnSil.BackgroundImage = global::IEA_Erproject102AA_Main.Properties.Resources.cop24x24;
-            this.btnSil.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btnSil.Location = new System.Drawing.Point(173, 12);
-            this.btnSil.Name = "btnSil";
-            this.btnSil.Size = new System.Drawing.Size(54, 45);
-            this.btnSil.TabIndex = 2;
-            this.btnSil.UseVisualStyleBackColor = true;
-            this.btnSil.Click += new System.EventHandler(this.btnSil_Click);
-            // 
-            // btnGuncelle
-            // 
-            this.btnGuncelle.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left)));
-            this.btnGuncelle.BackgroundImage = global::IEA_Erproject102AA_Main.Properties.Resources.Update32x32;
-            this.btnGuncelle.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btnGuncelle.Location = new System.Drawing.Point(102, 12);
-            this.btnGuncelle.Name = "btnGuncelle";
-            this.btnGuncelle.Size = new System.Drawing.Size(54, 45);
-            this.btnGuncelle.TabIndex = 1;
-            this.btnGuncelle.UseVisualStyleBackColor = true;
-            this.btnGuncelle.Click += new System.EventHandler(this.btnGuncelle_Click);
-            // 
-            // btnKayit
-            // 
-            this.btnKayit.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left)));
-            this.btnKayit.BackgroundImage = global::IEA_Erproject102AA_Main.Properties.Resources.Save_icon64x64;
-            this.btnKayit.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btnKayit.Location = new System.Drawing.Point(16, 12);
-            this.btnKayit.Name = "btnKayit";
-            this.btnKayit.Size = new System.Drawing.Size(54, 45);
-            this.btnKayit.TabIndex = 0;
-            this.btnKayit.UseVisualStyleBackColor = true;
-            this.btnKayit.Click += new System.EventHandler(this.btnKayit_Click);
+            this.lblHastaneKodu.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.lblHastaneKodu.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.lblHastaneKodu.Location = new System.Drawing.Point(569, 12);
+            this.lblHastaneKodu.Name = "lblHastaneKodu";
+            this.lblHastaneKodu.Size = new System.Drawing.Size(142, 45);
+            this.lblHastaneKodu.TabIndex = 25;
+            this.lblHastaneKodu.Text = "***";
+            this.lblHastaneKodu.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // pnlAlt
             // 
@@ -199,7 +145,63 @@ namespace IEA_Erproject102AA_Main.BilgiGirisİslemleri.Hastaneler
             this.Liste.RowTemplate.Height = 24;
             this.Liste.Size = new System.Drawing.Size(1242, 181);
             this.Liste.TabIndex = 2;
+            this.Liste.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.Liste_CellContentClick);
             this.Liste.DoubleClick += new System.EventHandler(this.Liste_DoubleClick);
+            // 
+            // Id
+            // 
+            this.Id.HeaderText = "İd";
+            this.Id.MinimumWidth = 6;
+            this.Id.Name = "Id";
+            this.Id.Visible = false;
+            this.Id.Width = 125;
+            // 
+            // Sıra
+            // 
+            this.Sıra.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.Sıra.HeaderText = "Sıra";
+            this.Sıra.MinimumWidth = 6;
+            this.Sıra.Name = "Sıra";
+            this.Sıra.Width = 62;
+            // 
+            // CariKodu
+            // 
+            this.CariKodu.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.CariKodu.HeaderText = "Hastane Kodu";
+            this.CariKodu.MinimumWidth = 6;
+            this.CariKodu.Name = "CariKodu";
+            this.CariKodu.Width = 117;
+            // 
+            // CariAdi
+            // 
+            this.CariAdi.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.CariAdi.HeaderText = "Hastane Adi";
+            this.CariAdi.MinimumWidth = 6;
+            this.CariAdi.Name = "CariAdi";
+            // 
+            // CariTel
+            // 
+            this.CariTel.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.CariTel.HeaderText = "Hastane Telefonu";
+            this.CariTel.MinimumWidth = 6;
+            this.CariTel.Name = "CariTel";
+            this.CariTel.Width = 137;
+            // 
+            // CariMail
+            // 
+            this.CariMail.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.CariMail.HeaderText = "Hastane Mail";
+            this.CariMail.MinimumWidth = 6;
+            this.CariMail.Name = "CariMail";
+            this.CariMail.Width = 109;
+            // 
+            // CariYetkili
+            // 
+            this.CariYetkili.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.CariYetkili.HeaderText = "Yetkili Kisi";
+            this.CariYetkili.MinimumWidth = 6;
+            this.CariYetkili.Name = "CariYetkili";
+            this.CariYetkili.Width = 92;
             // 
             // splitter1
             // 
@@ -236,15 +238,6 @@ namespace IEA_Erproject102AA_Main.BilgiGirisİslemleri.Hastaneler
             this.label3.TabIndex = 4;
             this.label3.Text = "Adres 1:";
             this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // label4
-            // 
-            this.label4.Location = new System.Drawing.Point(518, 185);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(100, 23);
-            this.label4.TabIndex = 4;
-            this.label4.Text = "Adres 2:";
-            this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // label5
             // 
@@ -446,7 +439,7 @@ namespace IEA_Erproject102AA_Main.BilgiGirisİslemleri.Hastaneler
             // 
             // label15
             // 
-            this.label15.Location = new System.Drawing.Point(19, 10);
+            this.label15.Location = new System.Drawing.Point(632, 351);
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(100, 23);
             this.label15.TabIndex = 4;
@@ -465,7 +458,7 @@ namespace IEA_Erproject102AA_Main.BilgiGirisİslemleri.Hastaneler
             // txtHastTipi
             // 
             this.txtHastTipi.FormattingEnabled = true;
-            this.txtHastTipi.Location = new System.Drawing.Point(131, 9);
+            this.txtHastTipi.Location = new System.Drawing.Point(744, 350);
             this.txtHastTipi.Name = "txtHastTipi";
             this.txtHastTipi.Size = new System.Drawing.Size(190, 24);
             this.txtHastTipi.TabIndex = 0;
@@ -499,6 +492,7 @@ namespace IEA_Erproject102AA_Main.BilgiGirisİslemleri.Hastaneler
             this.txtAdres1.Name = "txtAdres1";
             this.txtAdres1.Size = new System.Drawing.Size(272, 59);
             this.txtAdres1.TabIndex = 4;
+            this.txtAdres1.TextChanged += new System.EventHandler(this.txtAdres1_TextChanged);
             // 
             // txtHastTel
             // 
@@ -541,6 +535,7 @@ namespace IEA_Erproject102AA_Main.BilgiGirisİslemleri.Hastaneler
             // 
             // pnlOrta
             // 
+            this.pnlOrta.Controls.Add(this.txtHKoduBul);
             this.pnlOrta.Controls.Add(this.label15);
             this.pnlOrta.Controls.Add(this.txtAdres1);
             this.pnlOrta.Controls.Add(this.label1);
@@ -587,71 +582,87 @@ namespace IEA_Erproject102AA_Main.BilgiGirisİslemleri.Hastaneler
             this.pnlOrta.Size = new System.Drawing.Size(1242, 421);
             this.pnlOrta.TabIndex = 4;
             // 
-            // lblHastaneKodu
+            // txtHKoduBul
             // 
-            this.lblHastaneKodu.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.lblHastaneKodu.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.lblHastaneKodu.Location = new System.Drawing.Point(569, 12);
-            this.lblHastaneKodu.Name = "lblHastaneKodu";
-            this.lblHastaneKodu.Size = new System.Drawing.Size(142, 45);
-            this.lblHastaneKodu.TabIndex = 25;
-            this.lblHastaneKodu.Text = "***";
-            this.lblHastaneKodu.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.txtHKoduBul.Location = new System.Drawing.Point(59, 19);
+            this.txtHKoduBul.Name = "txtHKoduBul";
+            this.txtHKoduBul.Size = new System.Drawing.Size(344, 22);
+            this.txtHKoduBul.TabIndex = 25;
             // 
-            // Id
+            // label4
             // 
-            this.Id.HeaderText = "İd";
-            this.Id.MinimumWidth = 6;
-            this.Id.Name = "Id";
-            this.Id.Visible = false;
-            this.Id.Width = 125;
+            this.label4.Location = new System.Drawing.Point(518, 185);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(100, 23);
+            this.label4.TabIndex = 4;
+            this.label4.Text = "Adres 2:";
+            this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
-            // Sıra
+            // btnCikis
             // 
-            this.Sıra.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
-            this.Sıra.HeaderText = "Sıra";
-            this.Sıra.MinimumWidth = 6;
-            this.Sıra.Name = "Sıra";
-            this.Sıra.Width = 62;
+            this.btnCikis.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnCikis.BackColor = System.Drawing.SystemColors.ButtonFace;
+            this.btnCikis.BackgroundImage = global::IEA_Erproject102AA_Main.Properties.Resources.exit_64;
+            this.btnCikis.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnCikis.Location = new System.Drawing.Point(1131, 12);
+            this.btnCikis.Name = "btnCikis";
+            this.btnCikis.Size = new System.Drawing.Size(53, 45);
+            this.btnCikis.TabIndex = 3;
+            this.btnCikis.UseVisualStyleBackColor = false;
+            this.btnCikis.Click += new System.EventHandler(this.btnCikis_Click);
             // 
-            // CariKodu
+            // btnTemizle
             // 
-            this.CariKodu.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
-            this.CariKodu.HeaderText = "Hastane Kodu";
-            this.CariKodu.MinimumWidth = 6;
-            this.CariKodu.Name = "CariKodu";
-            this.CariKodu.Width = 127;
+            this.btnTemizle.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
+            this.btnTemizle.BackgroundImage = global::IEA_Erproject102AA_Main.Properties.Resources.Sil641;
+            this.btnTemizle.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnTemizle.Location = new System.Drawing.Point(244, 12);
+            this.btnTemizle.Name = "btnTemizle";
+            this.btnTemizle.Size = new System.Drawing.Size(54, 45);
+            this.btnTemizle.TabIndex = 2;
+            this.btnTemizle.UseVisualStyleBackColor = true;
+            this.btnTemizle.Click += new System.EventHandler(this.btnTemizle_Click);
             // 
-            // CariAdi
+            // btnSil
             // 
-            this.CariAdi.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.CariAdi.HeaderText = "Hastane Adi";
-            this.CariAdi.MinimumWidth = 6;
-            this.CariAdi.Name = "CariAdi";
+            this.btnSil.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
+            this.btnSil.BackgroundImage = global::IEA_Erproject102AA_Main.Properties.Resources.cop24x24;
+            this.btnSil.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnSil.Location = new System.Drawing.Point(173, 12);
+            this.btnSil.Name = "btnSil";
+            this.btnSil.Size = new System.Drawing.Size(54, 45);
+            this.btnSil.TabIndex = 2;
+            this.btnSil.UseVisualStyleBackColor = true;
+            this.btnSil.Click += new System.EventHandler(this.btnSil_Click);
             // 
-            // CariTel
+            // btnGuncelle
             // 
-            this.CariTel.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
-            this.CariTel.HeaderText = "Hastane Telefonu";
-            this.CariTel.MinimumWidth = 6;
-            this.CariTel.Name = "CariTel";
-            this.CariTel.Width = 137;
+            this.btnGuncelle.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
+            this.btnGuncelle.BackgroundImage = global::IEA_Erproject102AA_Main.Properties.Resources.Update32x32;
+            this.btnGuncelle.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnGuncelle.Location = new System.Drawing.Point(102, 12);
+            this.btnGuncelle.Name = "btnGuncelle";
+            this.btnGuncelle.Size = new System.Drawing.Size(54, 45);
+            this.btnGuncelle.TabIndex = 1;
+            this.btnGuncelle.UseVisualStyleBackColor = true;
+            this.btnGuncelle.Click += new System.EventHandler(this.btnGuncelle_Click);
             // 
-            // CariMail
+            // btnKayit
             // 
-            this.CariMail.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
-            this.CariMail.HeaderText = "Hastane Mail";
-            this.CariMail.MinimumWidth = 6;
-            this.CariMail.Name = "CariMail";
-            this.CariMail.Width = 109;
-            // 
-            // CariYetkili
-            // 
-            this.CariYetkili.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
-            this.CariYetkili.HeaderText = "Yetkili Kisi";
-            this.CariYetkili.MinimumWidth = 6;
-            this.CariYetkili.Name = "CariYetkili";
-            this.CariYetkili.Width = 92;
+            this.btnKayit.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
+            this.btnKayit.BackgroundImage = global::IEA_Erproject102AA_Main.Properties.Resources.Save_icon64x64;
+            this.btnKayit.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnKayit.Location = new System.Drawing.Point(16, 12);
+            this.btnKayit.Name = "btnKayit";
+            this.btnKayit.Size = new System.Drawing.Size(54, 45);
+            this.btnKayit.TabIndex = 0;
+            this.btnKayit.UseVisualStyleBackColor = true;
+            this.btnKayit.Click += new System.EventHandler(this.btnKayit_Click);
             // 
             // frmHastaneGirisEkrani
             // 
@@ -693,42 +704,16 @@ namespace IEA_Erproject102AA_Main.BilgiGirisİslemleri.Hastaneler
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label label12;
-        private System.Windows.Forms.TextBox txtYetAdi1;
-        private System.Windows.Forms.ComboBox txtYetDep1;
-        private System.Windows.Forms.TextBox txtYetAdi3;
-        private System.Windows.Forms.ComboBox txtYetDep3;
-        private System.Windows.Forms.TextBox txtYetAdi2;
-        private System.Windows.Forms.ComboBox txtYetDep2;
-        private System.Windows.Forms.MaskedTextBox txtYetTel1;
-        private System.Windows.Forms.MaskedTextBox txtYetCep1;
-        private System.Windows.Forms.TextBox txtYetMail1;
-        private System.Windows.Forms.MaskedTextBox txtYetTel2;
-        private System.Windows.Forms.MaskedTextBox txtYetCep2;
-        private System.Windows.Forms.TextBox txtYetMail2;
-        private System.Windows.Forms.MaskedTextBox txtYetTel3;
-        private System.Windows.Forms.MaskedTextBox txtYetCep3;
-        private System.Windows.Forms.TextBox txtYetMail3;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.Label label16;
-        private System.Windows.Forms.ComboBox txtHastTipi;
-        private System.Windows.Forms.TextBox txtHastAdi;
-        private System.Windows.Forms.TextBox txtHastUnvan;
-        private System.Windows.Forms.TextBox txtAdres2;
-        private System.Windows.Forms.TextBox txtAdres1;
-        private System.Windows.Forms.MaskedTextBox txtHastTel;
-        private System.Windows.Forms.ComboBox txtSehir;
-        private System.Windows.Forms.MaskedTextBox txtVergiTc;
-        private System.Windows.Forms.TextBox txtHastMail;
-        private System.Windows.Forms.TextBox txtVergiD;
         private System.Windows.Forms.Button btnCikis;
         private System.Windows.Forms.Button btnSil;
         private System.Windows.Forms.Button btnGuncelle;
         private System.Windows.Forms.Button btnKayit;
         private System.Windows.Forms.Panel pnlOrta;
         private System.Windows.Forms.Button btnTemizle;
-        private System.Windows.Forms.Label lblHastaneKodu;
         private System.Windows.Forms.DataGridViewTextBoxColumn Id;
         private System.Windows.Forms.DataGridViewTextBoxColumn Sıra;
         private System.Windows.Forms.DataGridViewTextBoxColumn CariKodu;
@@ -736,5 +721,32 @@ namespace IEA_Erproject102AA_Main.BilgiGirisİslemleri.Hastaneler
         private System.Windows.Forms.DataGridViewTextBoxColumn CariTel;
         private System.Windows.Forms.DataGridViewTextBoxColumn CariMail;
         private System.Windows.Forms.DataGridViewTextBoxColumn CariYetkili;
+        public System.Windows.Forms.TextBox txtYetAdi1;
+        public System.Windows.Forms.ComboBox txtYetDep1;
+        public System.Windows.Forms.TextBox txtYetAdi3;
+        public System.Windows.Forms.ComboBox txtYetDep3;
+        public System.Windows.Forms.TextBox txtYetAdi2;
+        public System.Windows.Forms.ComboBox txtYetDep2;
+        public System.Windows.Forms.MaskedTextBox txtYetTel1;
+        public System.Windows.Forms.MaskedTextBox txtYetCep1;
+        public System.Windows.Forms.TextBox txtYetMail1;
+        public System.Windows.Forms.MaskedTextBox txtYetTel2;
+        public System.Windows.Forms.MaskedTextBox txtYetCep2;
+        public System.Windows.Forms.TextBox txtYetMail2;
+        public System.Windows.Forms.MaskedTextBox txtYetTel3;
+        public System.Windows.Forms.MaskedTextBox txtYetCep3;
+        public System.Windows.Forms.TextBox txtYetMail3;
+        public System.Windows.Forms.ComboBox txtHastTipi;
+        public System.Windows.Forms.TextBox txtHastAdi;
+        public System.Windows.Forms.TextBox txtHastUnvan;
+        public System.Windows.Forms.TextBox txtAdres2;
+        public System.Windows.Forms.TextBox txtAdres1;
+        public System.Windows.Forms.MaskedTextBox txtHastTel;
+        public System.Windows.Forms.ComboBox txtSehir;
+        public System.Windows.Forms.MaskedTextBox txtVergiTc;
+        public System.Windows.Forms.TextBox txtHastMail;
+        public System.Windows.Forms.TextBox txtVergiD;
+        public System.Windows.Forms.Label lblHastaneKodu;
+        private System.Windows.Forms.TextBox txtHKoduBul;
     }
 }
