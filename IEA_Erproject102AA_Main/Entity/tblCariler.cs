@@ -14,6 +14,13 @@ namespace IEA_Erproject102AA_Main.Entity
     
     public partial class tblCariler
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public tblCariler()
+        {
+            this.tblPersonelDetay = new HashSet<tblPersonelDetay>();
+            this.tblUrunler1 = new HashSet<tblUrunler1>();
+        }
+    
         public int Id { get; set; }
         public string CariKodu { get; set; }
         public Nullable<int> CariGrupId { get; set; }
@@ -47,8 +54,14 @@ namespace IEA_Erproject102AA_Main.Entity
         public Nullable<System.DateTime> SaveDate { get; set; }
         public Nullable<System.DateTime> UpdateDate { get; set; }
         public Nullable<bool> isActive { get; set; }
+        public Nullable<System.DateTime> isGiris { get; set; }
+        public Nullable<System.DateTime> isCikis { get; set; }
     
         public virtual tblCariGruplari tblCariGruplari { get; set; }
         public virtual tblSehirler tblSehirler { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<tblPersonelDetay> tblPersonelDetay { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<tblUrunler1> tblUrunler1 { get; set; }
     }
 }

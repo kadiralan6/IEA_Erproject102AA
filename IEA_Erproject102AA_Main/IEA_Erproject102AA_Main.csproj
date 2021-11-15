@@ -67,6 +67,18 @@
     <Compile Include="BilgiGirisİslemleri\Doktorlar\frmDoktorlarListesi.Designer.cs">
       <DependentUpon>frmDoktorlarListesi.cs</DependentUpon>
     </Compile>
+    <Compile Include="BilgiGirisİslemleri\Firmalar\frmFirmaGiris.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BilgiGirisİslemleri\Firmalar\frmFirmaGiris.Designer.cs">
+      <DependentUpon>frmFirmaGiris.cs</DependentUpon>
+    </Compile>
+    <Compile Include="BilgiGirisİslemleri\Firmalar\frmFirmalarListesi.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BilgiGirisİslemleri\Firmalar\frmFirmalarListesi.Designer.cs">
+      <DependentUpon>frmFirmalarListesi.cs</DependentUpon>
+    </Compile>
     <Compile Include="BilgiGirisİslemleri\Hastaneler\frmHastaneGirisEkrani.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -79,34 +91,54 @@
     <Compile Include="BilgiGirisİslemleri\Hastaneler\frmHastanelerListesi.Designer.cs">
       <DependentUpon>frmHastanelerListesi.cs</DependentUpon>
     </Compile>
-    <Compile Include="Entity\ErpProjectModel.Context.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>ErpProjectModel.Context.tt</DependentUpon>
+    <Compile Include="BilgiGirisİslemleri\Personeller\frmPersonelGirisEkrani.cs">
+      <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Entity\ErpProjectModel.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>ErpProjectModel.tt</DependentUpon>
+    <Compile Include="BilgiGirisİslemleri\Personeller\frmPersonelGirisEkrani.Designer.cs">
+      <DependentUpon>frmPersonelGirisEkrani.cs</DependentUpon>
     </Compile>
-    <Compile Include="Entity\ErpProjectModel.Designer.cs">
+    <Compile Include="BilgiGirisİslemleri\Personeller\frmPersonellerListesi.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BilgiGirisİslemleri\Personeller\frmPersonellerListesi.Designer.cs">
+      <DependentUpon>frmPersonellerListesi.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\ErpProject102Model.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>ErpProjectModel.edmx</DependentUpon>
+      <DependentUpon>ErpProject102Model.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\ErpProject102Model.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ErpProject102Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\ErpProject102Model.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ErpProject102Model.edmx</DependentUpon>
     </Compile>
     <Compile Include="Entity\tblCariGruplari.cs">
-      <DependentUpon>ErpProjectModel.tt</DependentUpon>
+      <DependentUpon>ErpProject102Model.tt</DependentUpon>
     </Compile>
     <Compile Include="Entity\tblCariler.cs">
-      <DependentUpon>ErpProjectModel.tt</DependentUpon>
+      <DependentUpon>ErpProject102Model.tt</DependentUpon>
     </Compile>
     <Compile Include="Entity\tblDepartmanlar.cs">
-      <DependentUpon>ErpProjectModel.tt</DependentUpon>
+      <DependentUpon>ErpProject102Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\tblPersonelDetay.cs">
+      <DependentUpon>ErpProject102Model.tt</DependentUpon>
     </Compile>
     <Compile Include="Entity\tblSehirler.cs">
-      <DependentUpon>ErpProjectModel.tt</DependentUpon>
+      <DependentUpon>ErpProject102Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\tblUrunler1.cs">
+      <DependentUpon>ErpProject102Model.tt</DependentUpon>
     </Compile>
     <Compile Include="Fonksiyonlar\enumDoktorUnvanlar.cs" />
+    <Compile Include="Fonksiyonlar\enumFirmaTipi.cs" />
+    <Compile Include="Fonksiyonlar\enuPersonelUnvan.cs" />
     <Compile Include="Fonksiyonlar\Numaralar.cs" />
     <Compile Include="Home.cs">
       <SubType>Form</SubType>
@@ -116,17 +148,41 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Urunler\frmUrunListe.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Urunler\frmUrunListe.Designer.cs">
+      <DependentUpon>frmUrunListe.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Urunler\UrunGirisSistemi.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Urunler\UrunGirisSistemi.Designer.cs">
+      <DependentUpon>UrunGirisSistemi.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="BilgiGirisİslemleri\Doktorlar\frmDoktorGirisEkrani.resx">
       <DependentUpon>frmDoktorGirisEkrani.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="BilgiGirisİslemleri\Doktorlar\frmDoktorlarListesi.resx">
       <DependentUpon>frmDoktorlarListesi.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="BilgiGirisİslemleri\Firmalar\frmFirmaGiris.resx">
+      <DependentUpon>frmFirmaGiris.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BilgiGirisİslemleri\Firmalar\frmFirmalarListesi.resx">
+      <DependentUpon>frmFirmalarListesi.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="BilgiGirisİslemleri\Hastaneler\frmHastaneGirisEkrani.resx">
       <DependentUpon>frmHastaneGirisEkrani.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="BilgiGirisİslemleri\Hastaneler\frmHastanelerListesi.resx">
       <DependentUpon>frmHastanelerListesi.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BilgiGirisİslemleri\Personeller\frmPersonelGirisEkrani.resx">
+      <DependentUpon>frmPersonelGirisEkrani.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BilgiGirisİslemleri\Personeller\frmPersonellerListesi.resx">
+      <DependentUpon>frmPersonellerListesi.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Home.resx">
       <DependentUpon>Home.cs</DependentUpon>
@@ -141,12 +197,18 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
-    <EntityDeploy Include="Entity\ErpProjectModel.edmx">
+    <EmbeddedResource Include="Urunler\frmUrunListe.resx">
+      <DependentUpon>frmUrunListe.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Urunler\UrunGirisSistemi.resx">
+      <DependentUpon>UrunGirisSistemi.cs</DependentUpon>
+    </EmbeddedResource>
+    <EntityDeploy Include="Entity\ErpProject102Model.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>ErpProjectModel.Designer.cs</LastGenOutput>
+      <LastGenOutput>ErpProject102Model.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <None Include="Entity\ErpProjectModel.edmx.diagram">
-      <DependentUpon>ErpProjectModel.edmx</DependentUpon>
+    <None Include="Entity\ErpProject102Model.edmx.diagram">
+      <DependentUpon>ErpProject102Model.edmx</DependentUpon>
     </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
@@ -163,15 +225,15 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Entity\ErpProjectModel.Context.tt">
+    <Content Include="Entity\ErpProject102Model.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>ErpProjectModel.edmx</DependentUpon>
-      <LastGenOutput>ErpProjectModel.Context.cs</LastGenOutput>
+      <DependentUpon>ErpProject102Model.edmx</DependentUpon>
+      <LastGenOutput>ErpProject102Model.Context.cs</LastGenOutput>
     </Content>
-    <Content Include="Entity\ErpProjectModel.tt">
+    <Content Include="Entity\ErpProject102Model.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>ErpProjectModel.edmx</DependentUpon>
-      <LastGenOutput>ErpProjectModel.cs</LastGenOutput>
+      <DependentUpon>ErpProject102Model.edmx</DependentUpon>
+      <LastGenOutput>ErpProject102Model.cs</LastGenOutput>
     </Content>
     <Content Include="Images\003_46.png" />
     <Content Include="Images\2_002.png" />
@@ -277,6 +339,9 @@
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Sql\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

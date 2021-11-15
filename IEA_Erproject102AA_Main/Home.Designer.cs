@@ -36,6 +36,7 @@ namespace IEA_Erproject102AA_Main
             this.pnlAltMenu = new System.Windows.Forms.Panel();
             this.pnlSolMenu = new System.Windows.Forms.Panel();
             this.sConSolMenu = new System.Windows.Forms.SplitContainer();
+            this.tvUrunIslemleri = new System.Windows.Forms.TreeView();
             this.tvBilgiGirisİslemleri = new System.Windows.Forms.TreeView();
             this.tv12 = new System.Windows.Forms.TreeView();
             this.tv11 = new System.Windows.Forms.TreeView();
@@ -47,7 +48,6 @@ namespace IEA_Erproject102AA_Main
             this.tv8 = new System.Windows.Forms.TreeView();
             this.tv4 = new System.Windows.Forms.TreeView();
             this.tv3 = new System.Windows.Forms.TreeView();
-            this.tv2 = new System.Windows.Forms.TreeView();
             this.button7 = new System.Windows.Forms.Button();
             this.button8 = new System.Windows.Forms.Button();
             this.button9 = new System.Windows.Forms.Button();
@@ -55,7 +55,7 @@ namespace IEA_Erproject102AA_Main
             this.button5 = new System.Windows.Forms.Button();
             this.button6 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
+            this.btnUrunGiris = new System.Windows.Forms.Button();
             this.btnBilgiGiris = new System.Windows.Forms.Button();
             this.pnlCUst = new System.Windows.Forms.Panel();
             this.btnMenuCollapse = new System.Windows.Forms.Button();
@@ -136,6 +136,7 @@ namespace IEA_Erproject102AA_Main
             // 
             // sConSolMenu.Panel1
             // 
+            this.sConSolMenu.Panel1.Controls.Add(this.tvUrunIslemleri);
             this.sConSolMenu.Panel1.Controls.Add(this.tvBilgiGirisİslemleri);
             this.sConSolMenu.Panel1.Controls.Add(this.tv12);
             this.sConSolMenu.Panel1.Controls.Add(this.tv11);
@@ -147,7 +148,6 @@ namespace IEA_Erproject102AA_Main
             this.sConSolMenu.Panel1.Controls.Add(this.tv8);
             this.sConSolMenu.Panel1.Controls.Add(this.tv4);
             this.sConSolMenu.Panel1.Controls.Add(this.tv3);
-            this.sConSolMenu.Panel1.Controls.Add(this.tv2);
             this.sConSolMenu.Panel1MinSize = 35;
             // 
             // sConSolMenu.Panel2
@@ -159,11 +159,21 @@ namespace IEA_Erproject102AA_Main
             this.sConSolMenu.Panel2.Controls.Add(this.button5);
             this.sConSolMenu.Panel2.Controls.Add(this.button6);
             this.sConSolMenu.Panel2.Controls.Add(this.button3);
-            this.sConSolMenu.Panel2.Controls.Add(this.button2);
+            this.sConSolMenu.Panel2.Controls.Add(this.btnUrunGiris);
             this.sConSolMenu.Panel2.Controls.Add(this.btnBilgiGiris);
             this.sConSolMenu.Size = new System.Drawing.Size(275, 580);
             this.sConSolMenu.SplitterDistance = 212;
             this.sConSolMenu.TabIndex = 5;
+            // 
+            // tvUrunIslemleri
+            // 
+            this.tvUrunIslemleri.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tvUrunIslemleri.Location = new System.Drawing.Point(0, 0);
+            this.tvUrunIslemleri.Name = "tvUrunIslemleri";
+            this.tvUrunIslemleri.Size = new System.Drawing.Size(271, 208);
+            this.tvUrunIslemleri.TabIndex = 1;
+            this.tvUrunIslemleri.Visible = false;
+            this.tvUrunIslemleri.DoubleClick += new System.EventHandler(this.tvUrunIslemleri_DoubleClick);
             // 
             // tvBilgiGirisİslemleri
             // 
@@ -265,15 +275,6 @@ namespace IEA_Erproject102AA_Main
             this.tv3.TabIndex = 2;
             this.tv3.Visible = false;
             // 
-            // tv2
-            // 
-            this.tv2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tv2.Location = new System.Drawing.Point(0, 0);
-            this.tv2.Name = "tv2";
-            this.tv2.Size = new System.Drawing.Size(271, 208);
-            this.tv2.TabIndex = 1;
-            this.tv2.Visible = false;
-            // 
             // button7
             // 
             this.button7.Location = new System.Drawing.Point(179, 175);
@@ -338,14 +339,15 @@ namespace IEA_Erproject102AA_Main
             this.button3.Text = "button3";
             this.button3.UseVisualStyleBackColor = true;
             // 
-            // button2
+            // btnUrunGiris
             // 
-            this.button2.Location = new System.Drawing.Point(93, 17);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(72, 62);
-            this.button2.TabIndex = 1;
-            this.button2.Text = "button2";
-            this.button2.UseVisualStyleBackColor = true;
+            this.btnUrunGiris.Location = new System.Drawing.Point(93, 17);
+            this.btnUrunGiris.Name = "btnUrunGiris";
+            this.btnUrunGiris.Size = new System.Drawing.Size(72, 62);
+            this.btnUrunGiris.TabIndex = 1;
+            this.btnUrunGiris.Text = "Ürün İşlemleri";
+            this.btnUrunGiris.UseVisualStyleBackColor = true;
+            this.btnUrunGiris.Click += new System.EventHandler(this.btnUrunGiris_Click);
             // 
             // btnBilgiGiris
             // 
@@ -430,6 +432,7 @@ namespace IEA_Erproject102AA_Main
             this.IsMdiContainer = true;
             this.Name = "Home";
             this.Text = "IEA_Erproject102AA_Main";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.Home_Load);
             this.tabCUstMenu.ResumeLayout(false);
             this.pnlSolMenu.ResumeLayout(false);
@@ -467,7 +470,7 @@ namespace IEA_Erproject102AA_Main
         private System.Windows.Forms.TreeView tv8;
         private System.Windows.Forms.TreeView tv4;
         private System.Windows.Forms.TreeView tv3;
-        private System.Windows.Forms.TreeView tv2;
+        private System.Windows.Forms.TreeView tvUrunIslemleri;
         private System.Windows.Forms.TreeView tvBilgiGirisİslemleri;
         private System.Windows.Forms.Button button7;
         private System.Windows.Forms.Button button8;
@@ -476,7 +479,7 @@ namespace IEA_Erproject102AA_Main
         private System.Windows.Forms.Button button5;
         private System.Windows.Forms.Button button6;
         private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button btnUrunGiris;
         private System.Windows.Forms.Button btnBilgiGiris;
     }
 }

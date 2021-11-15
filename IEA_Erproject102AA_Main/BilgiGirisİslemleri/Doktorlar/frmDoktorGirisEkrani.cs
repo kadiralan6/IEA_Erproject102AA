@@ -31,17 +31,14 @@ namespace IEA_Erproject102AA_Main.BilgiGirisİslemleri.Doktorlar
             Liste.Rows.Clear(); // temizleyip yeniden oluştursun
             int i = 0, sira = 1;
 
-            var lst = (from s in erp.tblCariler
-                       where s.isActive == true
-                       where s.CariGrupId == 2
-                       select new
+            var lst = (from s in erp.tblCariler where s.isActive == true where s.CariGrupId == 2 select new
                        {
                            id = s.Id,
                            Dkodu = s.CariKodu,
                            Dadi = s.CariAdi,
                            Dtel = s.CariTel,
                            Dmail = s.CariMail,
-                           
+
                        }).ToList(); //new ihtayç  kadar çekmek için bunları form ekranında bize gözükecek yer kadar yaptık
 
             foreach (var k in lst)
@@ -64,6 +61,7 @@ namespace IEA_Erproject102AA_Main.BilgiGirisİslemleri.Doktorlar
         private void ComboDoldur()
         {
             var dep1 = erp.tblDepartmanlar.Where(x => x.GrupId == 2).ToList();
+             
             txtDoktUnvan.DataSource = Enum.GetValues(typeof(enumDoktorUnvanlar));
             var seh = erp.tblSehirler.ToList(); // on kosul yok hepsini alıyoz
 
@@ -87,7 +85,12 @@ namespace IEA_Erproject102AA_Main.BilgiGirisİslemleri.Doktorlar
             string hKodu = n.CariKoduHastane();
 
             try
+
             {
+                if (txtDoktAdi.Text == "")
+                {
+                    return;
+                }
                 if (secimId == -1)
                 {
                     tblCariler hst = new tblCariler();
@@ -159,8 +162,11 @@ namespace IEA_Erproject102AA_Main.BilgiGirisİslemleri.Doktorlar
                 hst.CariUnvan = txtDoktUnvan.Text;
                 hst.VDairesi = txtDkVDairesi.Text;
                 hst.VNoTcno = txtDkVTcNo.Text;
-
-                hst.SehirId = (int?)txtDokSehir.SelectedValue ?? -1;
+                if (txtDokSehir.SelectedValue != null)
+                {
+                    hst.SehirId = (int?)txtDokSehir.SelectedValue ?? -1;
+                }
+                
                 hst.UpdateDate = DateTime.Now;
                 hst.UpdateUserId = 2;
                 hst.CariKodu = lblHastaneKodu.Text;
@@ -241,13 +247,19 @@ namespace IEA_Erproject102AA_Main.BilgiGirisİslemleri.Doktorlar
                 txtDkDepartman.Text = hst.YetkiliDep1;
                 txtDoktUnvan.Text = hst.CariUnvan;
 
-                txtDokSehir.Text = hst.tblSehirler.sehir;
+                txtDokSehir.Text = hst.tblSehirler.sehir == null ? "" : hst.tblSehirler.sehir; // eğer tblsehirler null ise "" yaz değilse sağ taraftaki
+                                                                                // tblsehirler i yaz.
                 lblHastaneKodu.Text = hst.CariKodu;
             }
             catch (Exception e)
             {
                 MessageBox.Show(e.Message);
             }
+
+        }
+
+        private void Liste_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
 
         }
     }

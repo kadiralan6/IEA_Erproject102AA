@@ -12,30 +12,29 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace IEA_Erproject102AA_Main.BilgiGirisİslemleri.Hastaneler
+namespace IEA_Erproject102AA_Main.BilgiGirisİslemleri.Firmalar
 {
-    public partial class frmHastaneGirisEkrani : Form
+    public partial class frmFirmaGiris : Form
     {
-       private ErpProject102Entities erp = new ErpProject102Entities();
-       private Numaralar n = new Numaralar();
-       private int secimId = -1;
-
-        public frmHastaneGirisEkrani()
+        private ErpProject102Entities erp = new ErpProject102Entities();
+        private Numaralar n = new Numaralar();
+        private int secimId = -1;
+        public frmFirmaGiris()
         {
             InitializeComponent();
         }
 
-        private void frmHastaneGirisEkrani_Load(object sender, EventArgs e)
+        private void frmFirmaGiris_Load(object sender, EventArgs e)
         {
             ComboDoldur();
             Listele();
         }
-
         private void ComboDoldur()
         {
-            var dep1 = erp.tblDepartmanlar.Where(x => x.GrupId == 1).ToList(); 
-            var dep2 = erp.tblDepartmanlar.Where(x => x.GrupId == 1).ToList();
-            var dep3 = erp.tblDepartmanlar.Where(x => x.GrupId == 1).ToList();
+            var dep1 = erp.tblDepartmanlar.Where(x => x.GrupId == 3).ToList();
+            var dep2 = erp.tblDepartmanlar.Where(x => x.GrupId == 3).ToList();
+            var dep3 = erp.tblDepartmanlar.Where(x => x.GrupId == 3).ToList();
+            txtFirmaTipi.DataSource = Enum.GetValues(typeof(enumFirmaTipi));
 
             var seh = erp.tblSehirler.ToList(); // on kosul yok hepsini alıyoz
 
@@ -60,68 +59,66 @@ namespace IEA_Erproject102AA_Main.BilgiGirisİslemleri.Hastaneler
             txtYetDep3.DisplayMember = "DeptAdi"; //departmanlar veritabanındaki adi ile aynı olmali
             txtYetDep3.SelectedIndex = -1;
         }
-
         private void Listele()
         {
             Liste.Rows.Clear(); // temizleyip yeniden oluştursun
-            int i = 0, sira=1;
+            int i = 0, sira = 1;
 
-            var lst = (from s in erp.tblCariler where s.isActive == true
-                       where s.CariGrupId == 1
+            var lst = (from s in erp.tblCariler
+                       where s.isActive == true
+                       where s.CariGrupId == 3
                        select new
                        {
                            id = s.Id,
-                           hkodu = s.CariKodu,
-                           hadi = s.CariAdi,
-                           htel = s.CariTel,
-                           hmail = s.CariMail,
-                           hyet = s.YetkiliAdi1
+                           Firmakodu = s.CariKodu,
+                           Firmaadi = s.CariAdi,
+                           Firmatel = s.CariTel,
+                           Firmamail = s.CariMail,
+                           FirmaYetAdi = s.YetkiliAdi1,
+                           FirmaYetCep = s.YetkiliCep1,
                        }).ToList(); //new ihtayç  kadar çekmek için bunları form ekranında bize gözükecek yer kadar yaptık
-          
+
             foreach (var k in lst)
             {
                 Liste.Rows.Add();
                 Liste.Rows[i].Cells[0].Value = k.id;
                 Liste.Rows[i].Cells[1].Value = sira;
-                Liste.Rows[i].Cells[2].Value = k.hkodu;
-                Liste.Rows[i].Cells[3].Value = k.hadi;
-                Liste.Rows[i].Cells[4].Value = k.htel;
-                Liste.Rows[i].Cells[5].Value = k.hmail;
-                Liste.Rows[i].Cells[6].Value = k.hyet;
+                Liste.Rows[i].Cells[2].Value = k.Firmakodu;
+                Liste.Rows[i].Cells[3].Value = k.Firmaadi;
+                Liste.Rows[i].Cells[4].Value = k.Firmatel;
+                Liste.Rows[i].Cells[5].Value = k.Firmamail;
+                Liste.Rows[i].Cells[6].Value = k.FirmaYetAdi;
+                Liste.Rows[i].Cells[7].Value = k.FirmaYetCep;
                 i++; sira++;
             }
             Liste.AllowUserToAddRows = false;
             Liste.ReadOnly = true;
             Liste.SelectionMode = DataGridViewSelectionMode.FullRowSelect; // bu nedir Veriye tıklandığında satır seçimi sağlama.
-            lblHastaneKodu.Text = n.CariKoduHastane();
+            lblHastaneKodu.Text = n.CariKoduFirmalar();
         }
 
         private void btnKayit_Click(object sender, EventArgs e)
         {
-
             YeniKayit();
-
         }
-
-        //kısayol tuşları mb çift tab cw tab
         private void YeniKayit()
         {
-            string hKodu = n.CariKoduHastane();
+            string hKodu = n.CariKoduFirmalar();
 
             try
             {
-                if (txtHastAdi.Text == "")
+                if (txtFirmaAdi.Text == "")
                 {
                     return;
                 }
-                if (secimId==-1)
+                if (secimId == -1)
                 {
                     tblCariler hst = new tblCariler();
 
                     hst.isActive = true;
-                    hst.CariAdi = txtHastAdi.Text;
+                    hst.CariAdi = txtFirmaAdi.Text;
                     hst.CariMail = txtHastMail.Text;
-                    hst.CariTel = txtHastTel.Text;
+                    hst.CariTel = txtFirmaTel.Text;
 
                     hst.YetkiliAdi1 = txtYetAdi1.Text;
                     hst.YetkiliAdi2 = txtYetAdi2.Text;
@@ -146,10 +143,10 @@ namespace IEA_Erproject102AA_Main.BilgiGirisİslemleri.Hastaneler
                     hst.Adres1 = txtAdres1.Text;
                     hst.Adres2 = txtAdres2.Text;
 
-                    hst.CariGrupId = 1;
-                    hst.CariTipId = 1;
-
-                    hst.CariUnvan = txtHastUnvan.Text;
+                    hst.CariGrupId = 3;
+                    hst.CariTipId = (int)txtFirmaTipi.SelectedValue;
+                    
+                   
                     hst.VDairesi = txtVergiD.Text;
                     hst.VNoTcno = txtVergiTc.Text;
 
@@ -165,7 +162,7 @@ namespace IEA_Erproject102AA_Main.BilgiGirisİslemleri.Hastaneler
                     erp.SaveChanges();
                     MessageBox.Show("Kayit Başarili");
                     Temizle();
-                   
+
                     Listele();
                 }
                 else
@@ -180,16 +177,13 @@ namespace IEA_Erproject102AA_Main.BilgiGirisİslemleri.Hastaneler
             }
         }
 
-     
-
         private void btnGuncelle_Click(object sender, EventArgs e)
         {
             Guncelle();
         }
-
         private void Guncelle()
         {
-           try
+            try
             {
                 if (secimId < 0)
                 {
@@ -197,10 +191,10 @@ namespace IEA_Erproject102AA_Main.BilgiGirisİslemleri.Hastaneler
                 }
 
                 tblCariler hst = erp.tblCariler.Find(secimId);
-           
-                hst.CariAdi = txtHastAdi.Text;
+
+                hst.CariAdi = txtFirmaAdi.Text;
                 hst.CariMail = txtHastMail.Text;
-                hst.CariTel = txtHastTel.Text;
+                hst.CariTel = txtFirmaTel.Text;
 
                 hst.YetkiliAdi1 = txtYetAdi1.Text;
                 hst.YetkiliAdi2 = txtYetAdi2.Text;
@@ -224,9 +218,12 @@ namespace IEA_Erproject102AA_Main.BilgiGirisİslemleri.Hastaneler
 
                 hst.Adres1 = txtAdres1.Text;
                 hst.Adres2 = txtAdres2.Text;
-                hst.CariTipId = 1;
+                 if(txtFirmaTipi.Text != "")
+                {
+                    hst.CariTipId = (int)txtFirmaTipi.SelectedValue;
+                }
 
-                hst.CariUnvan = txtHastUnvan.Text;
+               
                 hst.VDairesi = txtVergiD.Text;
                 hst.VNoTcno = txtVergiTc.Text;
 
@@ -235,9 +232,9 @@ namespace IEA_Erproject102AA_Main.BilgiGirisİslemleri.Hastaneler
                     hst.SehirId = (int?)txtSehir.SelectedValue ?? -1;
                 }
                 hst.UpdateDate = DateTime.Now;
-                hst.UpdateUserId= 1;
+                hst.UpdateUserId = 1;
                 hst.CariKodu = lblHastaneKodu.Text;
-                
+
                 erp.SaveChanges();
                 MessageBox.Show("Kayit Başarili");
 
@@ -261,13 +258,12 @@ namespace IEA_Erproject102AA_Main.BilgiGirisİslemleri.Hastaneler
                 Temizle();
                 Listele();
             }
-
         }
+
         private void btnTemizle_Click(object sender, EventArgs e)
         {
             Temizle();
         }
-
         private void Temizle()
         {
             foreach (Control k in pnlOrta.Controls) //pnorta bulunuan textler filan control sınıfının üyesi kısaca .Text aldıgımız her şey control sınıf üyesi
@@ -282,31 +278,19 @@ namespace IEA_Erproject102AA_Main.BilgiGirisİslemleri.Hastaneler
             txtYetDep1.SelectedIndex = -1;
             txtYetDep2.SelectedIndex = -1;
             txtYetDep3.SelectedIndex = -1;
-          
+
         }
 
         private void btnCikis_Click(object sender, EventArgs e)
         {
-            Close(); 
+            Close();
         }
 
         private void Liste_DoubleClick(object sender, EventArgs e)
-        {              
-         secimId = (int?)Liste.CurrentRow.Cells[0].Value ?? -1;
-          Ac(secimId);
-            //frmHastanelerListesi frm = new frmHastanelerListesi();
-            //frm.ShowDialog();
-            /* if (Application.OpenForms["frmHastanelerListesi"] != null)
-             {
-                 Temizle();
-             }*/
-            /*if(((frmHastanelerListesi)Application.OpenForms["frmHastanelerListesi"]).Visible == true)
-            {
-                Temizle();
-            }*/
-
+        {
+            secimId = (int?)Liste.CurrentRow.Cells[0].Value ?? -1;
+            Ac(secimId);
         }
-
         public void Ac(int i)
         {
             secimId = i;
@@ -314,9 +298,9 @@ namespace IEA_Erproject102AA_Main.BilgiGirisİslemleri.Hastaneler
             {
                 tblCariler hst = erp.tblCariler.Find(i); //sor
 
-                txtHastAdi.Text = hst.CariAdi;
+                txtFirmaAdi.Text = hst.CariAdi;
                 txtHastMail.Text = hst.CariMail;
-                txtHastTel.Text = hst.CariTel;
+                txtFirmaTel.Text = hst.CariTel;
 
                 txtYetAdi1.Text = hst.YetkiliAdi1;
                 txtYetAdi2.Text = hst.YetkiliAdi2;
@@ -341,20 +325,20 @@ namespace IEA_Erproject102AA_Main.BilgiGirisİslemleri.Hastaneler
                 txtAdres1.Text = hst.Adres1;
                 txtAdres2.Text = hst.Adres2;
 
-                txtHastUnvan.Text = hst.CariUnvan;
+               
                 txtVergiD.Text = hst.VDairesi;
                 txtVergiTc.Text = hst.VNoTcno;
 
                 txtSehir.Text = hst.tblSehirler.sehir == null ? "" : hst.tblSehirler.sehir;
                 lblHastaneKodu.Text = hst.CariKodu;
+                txtFirmaTipi.Text=Enum.GetName(typeof(enumFirmaTipi), hst.CariTipId);
             }
             catch (Exception e)
             {
                 MessageBox.Show(e.Message);
             }
-         
-        }
 
+        }
         protected override void OnLoad(EventArgs e)
         {
             var btn = new Button();
@@ -372,23 +356,13 @@ namespace IEA_Erproject102AA_Main.BilgiGirisİslemleri.Hastaneler
 
         private void btn_Click(object sender, EventArgs e)
         {
-            if(Application.OpenForms[""] == null)
+            if (Application.OpenForms[""] == null)
             {
-                frmHastanelerListesi frm = new frmHastanelerListesi();
+                frmFirmaGiris frm = new frmFirmaGiris();
                 frm.MdiParent = Home.ActiveForm;
-                frm.Show(); 
+                frm.Show();
             }
             SendToBack();
-        }
-
-        private void Liste_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
-
-        private void txtAdres1_TextChanged(object sender, EventArgs e)
-        {
-
         }
     }
 }

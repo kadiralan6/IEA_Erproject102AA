@@ -36,7 +36,7 @@ namespace IEA_Erproject102AA_Main.BilgiGirisİslemleri.Doktorlar
             this.btnSil = new System.Windows.Forms.Button();
             this.btnGuncelle = new System.Windows.Forms.Button();
             this.btnKayit = new System.Windows.Forms.Button();
-            this.DoktListBilgi = new System.Windows.Forms.DataGridView();
+            this.PerListBilgi = new System.Windows.Forms.DataGridView();
             this.Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Sıra = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.DoktorKodu = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -44,7 +44,7 @@ namespace IEA_Erproject102AA_Main.BilgiGirisİslemleri.Doktorlar
             this.DoktorTel = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.DoktorMail = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.pnlUst.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.DoktListBilgi)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PerListBilgi)).BeginInit();
             this.SuspendLayout();
             // 
             // pnlUst
@@ -134,24 +134,25 @@ namespace IEA_Erproject102AA_Main.BilgiGirisİslemleri.Doktorlar
             this.btnKayit.TabIndex = 0;
             this.btnKayit.UseVisualStyleBackColor = true;
             // 
-            // DoktListBilgi
+            // PerListBilgi
             // 
-            this.DoktListBilgi.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.DoktListBilgi.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.PerListBilgi.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.PerListBilgi.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Id,
             this.Sıra,
             this.DoktorKodu,
             this.DoktorAdi,
             this.DoktorTel,
             this.DoktorMail});
-            this.DoktListBilgi.Dock = System.Windows.Forms.DockStyle.Top;
-            this.DoktListBilgi.Location = new System.Drawing.Point(0, 79);
-            this.DoktListBilgi.Name = "DoktListBilgi";
-            this.DoktListBilgi.RowHeadersWidth = 51;
-            this.DoktListBilgi.RowTemplate.Height = 24;
-            this.DoktListBilgi.Size = new System.Drawing.Size(1044, 181);
-            this.DoktListBilgi.TabIndex = 8;
-            this.DoktListBilgi.DoubleClick += new System.EventHandler(this.DoktListBilgi_DoubleClick);
+            this.PerListBilgi.Dock = System.Windows.Forms.DockStyle.Top;
+            this.PerListBilgi.Location = new System.Drawing.Point(0, 79);
+            this.PerListBilgi.Name = "PerListBilgi";
+            this.PerListBilgi.RowHeadersWidth = 51;
+            this.PerListBilgi.RowTemplate.Height = 24;
+            this.PerListBilgi.Size = new System.Drawing.Size(1044, 181);
+            this.PerListBilgi.TabIndex = 8;
+            this.PerListBilgi.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DoktListBilgi_CellContentClick);
+            this.PerListBilgi.DoubleClick += new System.EventHandler(this.DoktListBilgi_DoubleClick);
             // 
             // Id
             // 
@@ -204,13 +205,13 @@ namespace IEA_Erproject102AA_Main.BilgiGirisİslemleri.Doktorlar
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1044, 585);
-            this.Controls.Add(this.DoktListBilgi);
+            this.Controls.Add(this.PerListBilgi);
             this.Controls.Add(this.pnlUst);
             this.Name = "frmDoktorlarListesi";
             this.Text = "frmDoktorlarListesi";
             this.Load += new System.EventHandler(this.frmDoktorlarListesi_Load);
             this.pnlUst.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.DoktListBilgi)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PerListBilgi)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -223,7 +224,7 @@ namespace IEA_Erproject102AA_Main.BilgiGirisİslemleri.Doktorlar
         private System.Windows.Forms.Button btnSil;
         private System.Windows.Forms.Button btnGuncelle;
         private System.Windows.Forms.Button btnKayit;
-        private System.Windows.Forms.DataGridView DoktListBilgi;
+        private System.Windows.Forms.DataGridView PerListBilgi;
         private System.Windows.Forms.DataGridViewTextBoxColumn Id;
         private System.Windows.Forms.DataGridViewTextBoxColumn Sıra;
         private System.Windows.Forms.DataGridViewTextBoxColumn DoktorKodu;

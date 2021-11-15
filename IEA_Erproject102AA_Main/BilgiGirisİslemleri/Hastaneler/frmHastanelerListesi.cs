@@ -90,6 +90,9 @@ namespace IEA_Erproject102AA_Main.BilgiGirisİslemleri.Hastaneler
             
         }
 
-     
+        private void HastListeBilgi_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
     }
 }

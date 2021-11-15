@@ -32,7 +32,7 @@ namespace IEA_Erproject102AA_Main.Fonksiyonlar
         {
             try
             {
-                var numara = (from s in erp.tblCariler where s.CariGrupId==2  orderby s.Id descending select s).First().Id; //buraya bak
+                var numara = (from s in erp.tblCariler   orderby s.Id descending select s).First().Id; //buraya bak
                 numara++;
                 string num = "D" + numara.ToString().PadLeft(8, '0');
                 return num;
@@ -45,6 +45,53 @@ namespace IEA_Erproject102AA_Main.Fonksiyonlar
 
         }
 
+        public string CariKoduPersonel()
+        {
+            try
+            {
+                var numara = (from s in erp.tblCariler  orderby s.Id descending select s).First().Id; //buraya bak
+                numara++;
+                string num = "P" + numara.ToString().PadLeft(8, '0');
+                return num;
+            }
+            catch (Exception)
+            {
 
+                return "P00000001";
+            }
+
+        }
+        public string CariKoduFirmalar()
+        {
+            try
+            {
+                var numara = (from s in erp.tblCariler orderby s.Id descending select s).First().Id; //buraya bak
+                numara++;
+                string num = "F" + numara.ToString().PadLeft(8, '0');
+                return num;
+            }
+            catch (Exception)
+            {
+
+                return "F00000001";
+            }
+
+        }
+        public string UrunGenelKodu()
+        {
+            try
+            {
+                var numara = (from s in erp.tblUrunler1 orderby s.Id descending select s).First().Id; //buraya bak
+                numara++;
+                string num = "U" + numara.ToString().PadLeft(8, '0');
+                return num;
+            }
+            catch (Exception)
+            {
+
+                return "U00000001";
+            }
+
+        }
     }
 }

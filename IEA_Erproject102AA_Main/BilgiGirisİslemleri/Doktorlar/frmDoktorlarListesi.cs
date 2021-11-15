@@ -29,7 +29,7 @@ namespace IEA_Erproject102AA_Main.BilgiGirisİslemleri.Doktorlar
         }
         private void Listele()
         {
-            DoktListBilgi.Rows.Clear();
+            PerListBilgi.Rows.Clear();
             // HastListeBilgi.Rows.Clear(); // temizleyip yeniden oluştursun
             int i = 0, sira = 1;
 
@@ -48,25 +48,25 @@ namespace IEA_Erproject102AA_Main.BilgiGirisİslemleri.Doktorlar
 
             foreach (var k in lst)
             {
-                DoktListBilgi.Rows.Add();
-                DoktListBilgi.Rows[i].Cells[0].Value = k.id;
-                DoktListBilgi.Rows[i].Cells[1].Value = sira;
-                DoktListBilgi.Rows[i].Cells[2].Value = k.Dkodu;
-                DoktListBilgi.Rows[i].Cells[3].Value = k.Dadi;
-                DoktListBilgi.Rows[i].Cells[4].Value = k.Dtel;
-                DoktListBilgi.Rows[i].Cells[5].Value = k.Dmail;           
+                PerListBilgi.Rows.Add();
+                PerListBilgi.Rows[i].Cells[0].Value = k.id;
+                PerListBilgi.Rows[i].Cells[1].Value = sira;
+                PerListBilgi.Rows[i].Cells[2].Value = k.Dkodu;
+                PerListBilgi.Rows[i].Cells[3].Value = k.Dadi;
+                PerListBilgi.Rows[i].Cells[4].Value = k.Dtel;
+                PerListBilgi.Rows[i].Cells[5].Value = k.Dmail;           
 
                 i++; sira++;
             }
-            DoktListBilgi.AllowUserToAddRows = false;
-            DoktListBilgi.ReadOnly = true;
-            DoktListBilgi.SelectionMode = DataGridViewSelectionMode.FullRowSelect; // bu nedir Veriye tıklandığında satır seçimi sağlama.
+            PerListBilgi.AllowUserToAddRows = false;
+            PerListBilgi.ReadOnly = true;
+            PerListBilgi.SelectionMode = DataGridViewSelectionMode.FullRowSelect; // bu nedir Veriye tıklandığında satır seçimi sağlama.
 
         }
 
         private void DoktListBilgi_DoubleClick(object sender, EventArgs e)
         {
-            secimId = (int?)DoktListBilgi.CurrentRow.Cells[0].Value ?? -1;
+            secimId = (int?)PerListBilgi.CurrentRow.Cells[0].Value ?? -1;
             if (secimId > 0 || Application.OpenForms["frmDoktorGirisEkrani"] == null)
             {
                 frmDoktorGirisEkrani frm = new frmDoktorGirisEkrani();
@@ -81,6 +81,11 @@ namespace IEA_Erproject102AA_Main.BilgiGirisİslemleri.Doktorlar
                 frm.Ac(secimId); //girişekranindanki ni public yaptık
                 Close();
             }
+        }
+
+        private void DoktListBilgi_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
     }
 }

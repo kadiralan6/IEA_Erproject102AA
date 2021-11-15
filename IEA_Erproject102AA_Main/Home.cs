@@ -1,5 +1,8 @@
 ﻿using IEA_Erproject102AA_Main.BilgiGirisİslemleri.Doktorlar;
+using IEA_Erproject102AA_Main.BilgiGirisİslemleri.Firmalar;
 using IEA_Erproject102AA_Main.BilgiGirisİslemleri.Hastaneler;
+using IEA_Erproject102AA_Main.BilgiGirisİslemleri.Personeller;
+using IEA_Erproject102AA_Main.Urunler;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -45,6 +48,15 @@ namespace IEA_Erproject102AA_Main
             tvBilgiGirisİslemleri.Nodes[2].Nodes.Add("Firma Bilgi Giris Ekrani"); //child
             tvBilgiGirisİslemleri.Nodes[2].Nodes.Add("Firmalar Listesi"); //child
 
+            tvBilgiGirisİslemleri.Nodes.Add("Personeller"); //root elemanı
+            tvBilgiGirisİslemleri.Nodes[3].Nodes.Add("Personel Bilgi Giris Ekrani"); //child
+            tvBilgiGirisİslemleri.Nodes[3].Nodes.Add("Personeller Listesi"); //child
+
+            #endregion
+            #region Ürünler Bilgi Giris
+            tvUrunIslemleri.Nodes.Add("Ürünler"); //root elemanı
+            tvUrunIslemleri.Nodes[0].Nodes.Add("Ürün Bilgi Giris Ekrani"); //child
+            tvUrunIslemleri.Nodes[0].Nodes.Add("Ürünler Listesi"); //child
             #endregion
         }
 
@@ -64,7 +76,7 @@ namespace IEA_Erproject102AA_Main
         private void TvGorunum()
         {
             tvBilgiGirisİslemleri.Visible = false;
-            tv2.Visible = false;
+            tvUrunIslemleri.Visible = false;
             tv3.Visible = false;
             tv4.Visible = false;
             tv5.Visible = false;
@@ -108,6 +120,61 @@ namespace IEA_Erproject102AA_Main
             else if (isim == "Doktorlar Listesi" && Application.OpenForms["frmDoktorlarListesi"] is null)
             {
                 frmDoktorlarListesi frm = new frmDoktorlarListesi();
+                frm.MdiParent = Form.ActiveForm;
+                frm.Show();
+            }
+            else if (isim == "Personel Bilgi Giris Ekrani" && Application.OpenForms["frmPersonelGirisEkrani"] is null)
+            {
+                frmPersonelGirisEkrani frm = new frmPersonelGirisEkrani();
+                frm.MdiParent = Form.ActiveForm;
+                frm.Show();
+            }
+            else if (isim == "Personeller Listesi" && Application.OpenForms["frmPersonellerListesi"] is null)
+            {
+                frmPersonellerListesi frm = new frmPersonellerListesi();
+                frm.MdiParent = Form.ActiveForm;
+                frm.Show();
+            }
+            else if (isim == "Firma Bilgi Giris Ekrani" && Application.OpenForms["frmFirmaGiris"] is null)
+            {
+                frmFirmaGiris frm = new frmFirmaGiris();
+                frm.MdiParent = Form.ActiveForm;
+                frm.Show();
+            }
+            else if (isim == "Firmalar Listesi" && Application.OpenForms["frmFirmalarListesi"] is null)
+            {
+                frmFirmalarListesi frm = new frmFirmalarListesi();
+                frm.MdiParent = Form.ActiveForm;
+                frm.Show();
+            }
+        }
+
+        private void btnUrunGiris_Click(object sender, EventArgs e)
+        {
+            lblMenuText.Text = btnBilgiGiris.Text;
+            TvGorunum();
+            tvUrunIslemleri.Visible = true;
+
+        }
+
+        private void tvUrunIslemleri_DoubleClick(object sender, EventArgs e)
+        {
+            string isim = "";
+            if (tvUrunIslemleri.SelectedNode != null)
+            {
+                isim = tvUrunIslemleri.SelectedNode.Text;
+            }
+            //string isim =tvBilgiGirisİslemleri.SelectedNode !=null ?  //eğer selected node gelmıyorsa //boşsa isine tırnak koy hata veriyor sonra
+            //    tvBilgiGirisİslemleri.SelectedNode.Text : ""; //seçilen node nın ismi alınıyor
+            if (isim == "Ürün Bilgi Giris Ekrani" && Application.OpenForms["frmFirmaGiris"] is null)
+            {
+                UrunGirisSistemi frm = new UrunGirisSistemi();
+                frm.MdiParent = Form.ActiveForm;
+                frm.Show();
+            }
+            else if (isim == "Ürünler Listesi" && Application.OpenForms["frmFirmalarListesi"] is null)
+            {
+                frmUrunListe frm = new frmUrunListe();
                 frm.MdiParent = Form.ActiveForm;
                 frm.Show();
             }

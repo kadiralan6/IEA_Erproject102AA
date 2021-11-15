@@ -304,6 +304,7 @@ namespace IEA_Erproject102AA_Main.BilgiGirisİslemleri.Doktorlar
             this.Liste.RowTemplate.Height = 24;
             this.Liste.Size = new System.Drawing.Size(1224, 181);
             this.Liste.TabIndex = 7;
+            this.Liste.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.Liste_CellContentClick);
             this.Liste.DoubleClick += new System.EventHandler(this.Liste_DoubleClick);
             // 
             // Id
