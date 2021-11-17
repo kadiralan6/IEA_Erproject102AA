@@ -2,6 +2,8 @@
 using IEA_Erproject102AA_Main.BilgiGirisİslemleri.Firmalar;
 using IEA_Erproject102AA_Main.BilgiGirisİslemleri.Hastaneler;
 using IEA_Erproject102AA_Main.BilgiGirisİslemleri.Personeller;
+using IEA_Erproject102AA_Main.DepoIslemleri.StokIslemleri;
+using IEA_Erproject102AA_Main.Fonksiyonlar;
 using IEA_Erproject102AA_Main.Urunler;
 using System;
 using System.Collections.Generic;
@@ -17,6 +19,8 @@ namespace IEA_Erproject102AA_Main
 {
     public partial class Home : Form
     {
+        Formlar f = new Formlar(); 
+        public static int Aktarma = -1; //static sebebi  devamlı kullanılacağı için statik yaptık
         public Home()
         {
             InitializeComponent();
@@ -58,6 +62,15 @@ namespace IEA_Erproject102AA_Main
             tvUrunIslemleri.Nodes[0].Nodes.Add("Ürün Bilgi Giris Ekrani"); //child
             tvUrunIslemleri.Nodes[0].Nodes.Add("Ürünler Listesi"); //child
             #endregion
+            #region DepoIslemleri
+            tvDepoIslemleri.Nodes.Add("Depo Islemleri");
+            tvDepoIslemleri.Nodes[0].Nodes.Add("Depo Stok Durum");
+            tvDepoIslemleri.Nodes[0].Nodes.Add("Depo Stok Giris");
+            tvDepoIslemleri.Nodes[0].Nodes[1].Nodes.Add("Depo Stok Giris");
+            tvDepoIslemleri.Nodes[0].Nodes[1].Nodes.Add("Stok Giris Listesi");
+            tvDepoIslemleri.Nodes[0].Nodes.Add("Depo Sevkiyat");
+
+            #endregion
         }
 
         private void button6_Click(object sender, EventArgs e)
@@ -77,7 +90,7 @@ namespace IEA_Erproject102AA_Main
         {
             tvBilgiGirisİslemleri.Visible = false;
             tvUrunIslemleri.Visible = false;
-            tv3.Visible = false;
+            tvDepoIslemleri.Visible = false;
             tv4.Visible = false;
             tv5.Visible = false;
             tv6.Visible = false;
@@ -105,10 +118,11 @@ namespace IEA_Erproject102AA_Main
                 frm.MdiParent = Form.ActiveForm;
                 frm.Show();
             } else if(isim == "Hastaneler Listesi" && Application.OpenForms["frmHastanelerListesi"] is null)
-            { 
-                frmHastanelerListesi frm = new frmHastanelerListesi();
-                frm.MdiParent = Form.ActiveForm;
-                frm.Show();
+            {
+                f.HastaneListesi();
+            //    frmHastanelerListesi frm = new frmHastanelerListesi();
+            //    frm.MdiParent = Form.ActiveForm;
+            //    frm.Show();
             }
            
             else if (isim == "Doktor Bilgi Giris Ekrani" && Application.OpenForms["frmDoktorGirisEkrani"] is null)
@@ -119,9 +133,10 @@ namespace IEA_Erproject102AA_Main
             }
             else if (isim == "Doktorlar Listesi" && Application.OpenForms["frmDoktorlarListesi"] is null)
             {
-                frmDoktorlarListesi frm = new frmDoktorlarListesi();
-                frm.MdiParent = Form.ActiveForm;
-                frm.Show();
+                f.DoktorlarListesi();
+                //frmDoktorlarListesi frm = new frmDoktorlarListesi();
+                //frm.MdiParent = Form.ActiveForm;
+                //frm.Show();
             }
             else if (isim == "Personel Bilgi Giris Ekrani" && Application.OpenForms["frmPersonelGirisEkrani"] is null)
             {
@@ -131,9 +146,10 @@ namespace IEA_Erproject102AA_Main
             }
             else if (isim == "Personeller Listesi" && Application.OpenForms["frmPersonellerListesi"] is null)
             {
-                frmPersonellerListesi frm = new frmPersonellerListesi();
-                frm.MdiParent = Form.ActiveForm;
-                frm.Show();
+                f.PersonellerListesi();
+                //frmPersonellerListesi frm = new frmPersonellerListesi();
+                //frm.MdiParent = Form.ActiveForm;
+                //frm.Show();
             }
             else if (isim == "Firma Bilgi Giris Ekrani" && Application.OpenForms["frmFirmaGiris"] is null)
             {
@@ -143,9 +159,10 @@ namespace IEA_Erproject102AA_Main
             }
             else if (isim == "Firmalar Listesi" && Application.OpenForms["frmFirmalarListesi"] is null)
             {
-                frmFirmalarListesi frm = new frmFirmalarListesi();
-                frm.MdiParent = Form.ActiveForm;
-                frm.Show();
+                f.FirmalarListesi();
+                //    frmFirmalarListesi frm = new frmFirmalarListesi();
+                //    frm.MdiParent = Form.ActiveForm;
+                //    frm.Show();
             }
         }
 
@@ -178,6 +195,42 @@ namespace IEA_Erproject102AA_Main
                 frm.MdiParent = Form.ActiveForm;
                 frm.Show();
             }
+        }
+
+        private void tvDepoIslemleri_AfterSelect(object sender, TreeViewEventArgs e)
+        {
+
+        }
+
+        private void tvDepoIslemleri_DoubleClick(object sender, EventArgs e)
+        {
+            string isim = "";
+            if (tvDepoIslemleri.SelectedNode != null)
+            {
+                isim = tvDepoIslemleri.SelectedNode.Text;
+            }
+            //string isim =tvBilgiGirisİslemleri.SelectedNode !=null ?  //eğer selected node gelmıyorsa //boşsa isine tırnak koy hata veriyor sonra
+            //    tvBilgiGirisİslemleri.SelectedNode.Text : ""; //seçilen node nın ismi alınıyor
+            if (isim == "Stok Giris Listesi" && Application.OpenForms["frmStokListesi"] is null)
+            {
+                frmStokListesi frm = new frmStokListesi();
+                frm.MdiParent = Form.ActiveForm;
+                frm.Show();
+            }
+            else if (isim == "Depo Stok Giris" && Application.OpenForms["frmStokGiris"] is null)
+            {
+                frmStokGiris frm = new frmStokGiris();
+                frm.MdiParent = Form.ActiveForm;
+                frm.Show();
+            }
+
+        }
+
+        private void btnDepoIslemleri_Click(object sender, EventArgs e)
+        {
+            lblMenuText.Text = btnDepoIslemleri.Text;
+            TvGorunum();
+            tvDepoIslemleri.Visible = true;
         }
     }
 }

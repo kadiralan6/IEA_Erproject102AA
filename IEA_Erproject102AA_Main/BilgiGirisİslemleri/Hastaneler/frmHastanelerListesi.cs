@@ -17,6 +17,7 @@ namespace IEA_Erproject102AA_Main.BilgiGirisİslemleri.Hastaneler
         private ErpProject102Entities erp = new ErpProject102Entities();
         frmHastaneGirisEkrani frm = new frmHastaneGirisEkrani();
         private int secimId;
+        public bool Secim = false;
         public frmHastanelerListesi()
         {
 
@@ -72,18 +73,19 @@ namespace IEA_Erproject102AA_Main.BilgiGirisİslemleri.Hastaneler
         private void HastListeBilgi_DoubleClick(object sender, EventArgs e)
         {
             secimId = (int?)HastListeBilgi.CurrentRow.Cells[0].Value ?? -1;
-            if (secimId > 0 || Application.OpenForms["frmHastaneGirisEkrani"] == null)
+            if (secimId > 0 && Secim && Application.OpenForms["frmHastaneGirisEkrani"] == null)
             {
-                frmHastaneGirisEkrani frm = new frmHastaneGirisEkrani();
-                frm.MdiParent = Form.ActiveForm;
-                frm.Show();
-                frm.Ac(secimId);
+                //frmHastaneGirisEkrani frm = new frmHastaneGirisEkrani();
+                //frm.MdiParent = Form.ActiveForm;
+                //frm.Show();
+                //frm.Ac(secimId);
+                Home.Aktarma = secimId;
                 Close();
             }
             else if(Application.OpenForms["frmHastaneGirisEkrani"] != null)
             {
                 frmHastaneGirisEkrani frm = Application.OpenForms["frmHastaneGirisEkrani"] as frmHastaneGirisEkrani;
-                frm.Ac(secimId); //girişekranindanki ni public yaptık
+                frm.Ac(secimId); //giriş ekranindanki ni public yaptık
                 Close();
             }
 

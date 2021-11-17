@@ -103,6 +103,18 @@
     <Compile Include="BilgiGirisİslemleri\Personeller\frmPersonellerListesi.Designer.cs">
       <DependentUpon>frmPersonellerListesi.cs</DependentUpon>
     </Compile>
+    <Compile Include="DepoIslemleri\StokIslemleri\frmStokGiris.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DepoIslemleri\StokIslemleri\frmStokGiris.Designer.cs">
+      <DependentUpon>frmStokGiris.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DepoIslemleri\StokIslemleri\frmStokListesi.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DepoIslemleri\StokIslemleri\frmStokListesi.Designer.cs">
+      <DependentUpon>frmStokListesi.cs</DependentUpon>
+    </Compile>
     <Compile Include="Entity\ErpProject102Model.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -133,12 +145,22 @@
     <Compile Include="Entity\tblSehirler.cs">
       <DependentUpon>ErpProject102Model.tt</DependentUpon>
     </Compile>
+    <Compile Include="Entity\tblStokDurum.cs">
+      <DependentUpon>ErpProject102Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\tblStokGirisAlt.cs">
+      <DependentUpon>ErpProject102Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\tblStokGirisUst.cs">
+      <DependentUpon>ErpProject102Model.tt</DependentUpon>
+    </Compile>
     <Compile Include="Entity\tblUrunler1.cs">
       <DependentUpon>ErpProject102Model.tt</DependentUpon>
     </Compile>
     <Compile Include="Fonksiyonlar\enumDoktorUnvanlar.cs" />
     <Compile Include="Fonksiyonlar\enumFirmaTipi.cs" />
     <Compile Include="Fonksiyonlar\enuPersonelUnvan.cs" />
+    <Compile Include="Fonksiyonlar\Formlar.cs" />
     <Compile Include="Fonksiyonlar\Numaralar.cs" />
     <Compile Include="Home.cs">
       <SubType>Form</SubType>
@@ -183,6 +205,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="BilgiGirisİslemleri\Personeller\frmPersonellerListesi.resx">
       <DependentUpon>frmPersonellerListesi.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DepoIslemleri\StokIslemleri\frmStokGiris.resx">
+      <DependentUpon>frmStokGiris.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Home.resx">
       <DependentUpon>Home.cs</DependentUpon>

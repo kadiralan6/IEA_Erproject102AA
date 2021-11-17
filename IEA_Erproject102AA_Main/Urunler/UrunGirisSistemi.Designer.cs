@@ -40,7 +40,13 @@ namespace IEA_Erproject102AA_Main.Urunler
             this.label14 = new System.Windows.Forms.Label();
             this.pnlOrta = new System.Windows.Forms.Panel();
             this.textBox1 = new System.Windows.Forms.TextBox();
+            this.label9 = new System.Windows.Forms.Label();
+            this.txtDistributor = new System.Windows.Forms.ComboBox();
+            this.label8 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
+            this.label10 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
+            this.txtUrunSFiyat = new System.Windows.Forms.TextBox();
             this.txtUrunAFiyat = new System.Windows.Forms.TextBox();
             this.txtUrunKodu = new System.Windows.Forms.MaskedTextBox();
             this.lblFirmaKodu = new System.Windows.Forms.Label();
@@ -51,19 +57,13 @@ namespace IEA_Erproject102AA_Main.Urunler
             this.btnGuncelle = new System.Windows.Forms.Button();
             this.btnKayit = new System.Windows.Forms.Button();
             this.Liste = new System.Windows.Forms.DataGridView();
-            this.pnlAlt = new System.Windows.Forms.Panel();
-            this.pnlUst = new System.Windows.Forms.Panel();
-            this.label7 = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
-            this.txtDistributor = new System.Windows.Forms.ComboBox();
-            this.label9 = new System.Windows.Forms.Label();
-            this.txtUrunSFiyat = new System.Windows.Forms.TextBox();
-            this.label10 = new System.Windows.Forms.Label();
             this.Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Sıra = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.GenelNo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.UrunKod = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.UrunAdi1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.pnlAlt = new System.Windows.Forms.Panel();
+            this.pnlUst = new System.Windows.Forms.Panel();
             this.pnlOrta.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Liste)).BeginInit();
             this.pnlUst.SuspendLayout();
@@ -177,6 +177,49 @@ namespace IEA_Erproject102AA_Main.Urunler
             this.textBox1.Size = new System.Drawing.Size(344, 22);
             this.textBox1.TabIndex = 25;
             // 
+            // label9
+            // 
+            this.label9.Location = new System.Drawing.Point(61, 68);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(100, 23);
+            this.label9.TabIndex = 4;
+            this.label9.Text = "Distributor";
+            this.label9.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // txtDistributor
+            // 
+            this.txtDistributor.FormattingEnabled = true;
+            this.txtDistributor.Location = new System.Drawing.Point(173, 67);
+            this.txtDistributor.Name = "txtDistributor";
+            this.txtDistributor.Size = new System.Drawing.Size(190, 24);
+            this.txtDistributor.TabIndex = 0;
+            // 
+            // label8
+            // 
+            this.label8.Location = new System.Drawing.Point(79, 67);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(100, 23);
+            this.label8.TabIndex = 4;
+            this.label8.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // label7
+            // 
+            this.label7.Location = new System.Drawing.Point(30, 18);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(137, 23);
+            this.label7.TabIndex = 4;
+            this.label7.Text = "Genel No : ";
+            this.label7.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // label10
+            // 
+            this.label10.Location = new System.Drawing.Point(71, 224);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(100, 23);
+            this.label10.TabIndex = 4;
+            this.label10.Text = "Satış Fiyatı : ";
+            this.label10.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // label12
             // 
             this.label12.Location = new System.Drawing.Point(71, 184);
@@ -185,6 +228,13 @@ namespace IEA_Erproject102AA_Main.Urunler
             this.label12.TabIndex = 4;
             this.label12.Text = "Alış Fiyatı : ";
             this.label12.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // txtUrunSFiyat
+            // 
+            this.txtUrunSFiyat.Location = new System.Drawing.Point(166, 224);
+            this.txtUrunSFiyat.Name = "txtUrunSFiyat";
+            this.txtUrunSFiyat.Size = new System.Drawing.Size(132, 22);
+            this.txtUrunSFiyat.TabIndex = 10;
             // 
             // txtUrunAFiyat
             // 
@@ -196,7 +246,6 @@ namespace IEA_Erproject102AA_Main.Urunler
             // txtUrunKodu
             // 
             this.txtUrunKodu.Location = new System.Drawing.Point(173, 117);
-            this.txtUrunKodu.Mask = "00000000000";
             this.txtUrunKodu.Name = "txtUrunKodu";
             this.txtUrunKodu.Size = new System.Drawing.Size(137, 22);
             this.txtUrunKodu.TabIndex = 9;
@@ -303,79 +352,6 @@ namespace IEA_Erproject102AA_Main.Urunler
             this.Liste.TabIndex = 7;
             this.Liste.DoubleClick += new System.EventHandler(this.Liste_DoubleClick);
             // 
-            // pnlAlt
-            // 
-            this.pnlAlt.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.pnlAlt.Location = new System.Drawing.Point(0, 723);
-            this.pnlAlt.Name = "pnlAlt";
-            this.pnlAlt.Size = new System.Drawing.Size(1210, 40);
-            this.pnlAlt.TabIndex = 6;
-            // 
-            // pnlUst
-            // 
-            this.pnlUst.BackColor = System.Drawing.Color.CadetBlue;
-            this.pnlUst.Controls.Add(this.lblFirmaKodu);
-            this.pnlUst.Controls.Add(this.btnCikis);
-            this.pnlUst.Controls.Add(this.btnTemizle);
-            this.pnlUst.Controls.Add(this.btnSil);
-            this.pnlUst.Controls.Add(this.btnGuncelle);
-            this.pnlUst.Controls.Add(this.btnKayit);
-            this.pnlUst.Dock = System.Windows.Forms.DockStyle.Top;
-            this.pnlUst.Location = new System.Drawing.Point(0, 0);
-            this.pnlUst.Name = "pnlUst";
-            this.pnlUst.Size = new System.Drawing.Size(1210, 79);
-            this.pnlUst.TabIndex = 5;
-            // 
-            // label7
-            // 
-            this.label7.Location = new System.Drawing.Point(30, 18);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(137, 23);
-            this.label7.TabIndex = 4;
-            this.label7.Text = "Genel No : ";
-            this.label7.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // label8
-            // 
-            this.label8.Location = new System.Drawing.Point(79, 67);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(100, 23);
-            this.label8.TabIndex = 4;
-            this.label8.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // txtDistributor
-            // 
-            this.txtDistributor.FormattingEnabled = true;
-            this.txtDistributor.Location = new System.Drawing.Point(173, 67);
-            this.txtDistributor.Name = "txtDistributor";
-            this.txtDistributor.Size = new System.Drawing.Size(190, 24);
-            this.txtDistributor.TabIndex = 0;
-            // 
-            // label9
-            // 
-            this.label9.Location = new System.Drawing.Point(61, 68);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(100, 23);
-            this.label9.TabIndex = 4;
-            this.label9.Text = "Distributor";
-            this.label9.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // txtUrunSFiyat
-            // 
-            this.txtUrunSFiyat.Location = new System.Drawing.Point(166, 224);
-            this.txtUrunSFiyat.Name = "txtUrunSFiyat";
-            this.txtUrunSFiyat.Size = new System.Drawing.Size(132, 22);
-            this.txtUrunSFiyat.TabIndex = 10;
-            // 
-            // label10
-            // 
-            this.label10.Location = new System.Drawing.Point(71, 224);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(100, 23);
-            this.label10.TabIndex = 4;
-            this.label10.Text = "Satış Fiyatı : ";
-            this.label10.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
             // Id
             // 
             this.Id.HeaderText = "İd";
@@ -413,6 +389,29 @@ namespace IEA_Erproject102AA_Main.Urunler
             this.UrunAdi1.HeaderText = "Urun Adi";
             this.UrunAdi1.MinimumWidth = 6;
             this.UrunAdi1.Name = "UrunAdi1";
+            // 
+            // pnlAlt
+            // 
+            this.pnlAlt.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.pnlAlt.Location = new System.Drawing.Point(0, 723);
+            this.pnlAlt.Name = "pnlAlt";
+            this.pnlAlt.Size = new System.Drawing.Size(1210, 40);
+            this.pnlAlt.TabIndex = 6;
+            // 
+            // pnlUst
+            // 
+            this.pnlUst.BackColor = System.Drawing.Color.CadetBlue;
+            this.pnlUst.Controls.Add(this.lblFirmaKodu);
+            this.pnlUst.Controls.Add(this.btnCikis);
+            this.pnlUst.Controls.Add(this.btnTemizle);
+            this.pnlUst.Controls.Add(this.btnSil);
+            this.pnlUst.Controls.Add(this.btnGuncelle);
+            this.pnlUst.Controls.Add(this.btnKayit);
+            this.pnlUst.Dock = System.Windows.Forms.DockStyle.Top;
+            this.pnlUst.Location = new System.Drawing.Point(0, 0);
+            this.pnlUst.Name = "pnlUst";
+            this.pnlUst.Size = new System.Drawing.Size(1210, 79);
+            this.pnlUst.TabIndex = 5;
             // 
             // UrunGirisSistemi
             // 

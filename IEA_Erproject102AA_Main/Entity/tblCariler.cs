@@ -19,6 +19,7 @@ namespace IEA_Erproject102AA_Main.Entity
         {
             this.tblPersonelDetay = new HashSet<tblPersonelDetay>();
             this.tblUrunler1 = new HashSet<tblUrunler1>();
+            this.tblStokGirisUst = new HashSet<tblStokGirisUst>();
         }
     
         public int Id { get; set; }
@@ -63,5 +64,7 @@ namespace IEA_Erproject102AA_Main.Entity
         public virtual ICollection<tblPersonelDetay> tblPersonelDetay { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<tblUrunler1> tblUrunler1 { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<tblStokGirisUst> tblStokGirisUst { get; set; }
     }
 }

@@ -47,14 +47,14 @@ namespace IEA_Erproject102AA_Main
             this.tv5 = new System.Windows.Forms.TreeView();
             this.tv8 = new System.Windows.Forms.TreeView();
             this.tv4 = new System.Windows.Forms.TreeView();
-            this.tv3 = new System.Windows.Forms.TreeView();
+            this.tvDepoIslemleri = new System.Windows.Forms.TreeView();
             this.button7 = new System.Windows.Forms.Button();
             this.button8 = new System.Windows.Forms.Button();
             this.button9 = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
             this.button5 = new System.Windows.Forms.Button();
             this.button6 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
+            this.btnDepoIslemleri = new System.Windows.Forms.Button();
             this.btnUrunGiris = new System.Windows.Forms.Button();
             this.btnBilgiGiris = new System.Windows.Forms.Button();
             this.pnlCUst = new System.Windows.Forms.Panel();
@@ -136,6 +136,7 @@ namespace IEA_Erproject102AA_Main
             // 
             // sConSolMenu.Panel1
             // 
+            this.sConSolMenu.Panel1.Controls.Add(this.tvDepoIslemleri);
             this.sConSolMenu.Panel1.Controls.Add(this.tvUrunIslemleri);
             this.sConSolMenu.Panel1.Controls.Add(this.tvBilgiGirisİslemleri);
             this.sConSolMenu.Panel1.Controls.Add(this.tv12);
@@ -147,7 +148,6 @@ namespace IEA_Erproject102AA_Main
             this.sConSolMenu.Panel1.Controls.Add(this.tv5);
             this.sConSolMenu.Panel1.Controls.Add(this.tv8);
             this.sConSolMenu.Panel1.Controls.Add(this.tv4);
-            this.sConSolMenu.Panel1.Controls.Add(this.tv3);
             this.sConSolMenu.Panel1MinSize = 35;
             // 
             // sConSolMenu.Panel2
@@ -158,7 +158,7 @@ namespace IEA_Erproject102AA_Main
             this.sConSolMenu.Panel2.Controls.Add(this.button4);
             this.sConSolMenu.Panel2.Controls.Add(this.button5);
             this.sConSolMenu.Panel2.Controls.Add(this.button6);
-            this.sConSolMenu.Panel2.Controls.Add(this.button3);
+            this.sConSolMenu.Panel2.Controls.Add(this.btnDepoIslemleri);
             this.sConSolMenu.Panel2.Controls.Add(this.btnUrunGiris);
             this.sConSolMenu.Panel2.Controls.Add(this.btnBilgiGiris);
             this.sConSolMenu.Size = new System.Drawing.Size(275, 580);
@@ -266,14 +266,16 @@ namespace IEA_Erproject102AA_Main
             this.tv4.TabIndex = 3;
             this.tv4.Visible = false;
             // 
-            // tv3
+            // tvDepoIslemleri
             // 
-            this.tv3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tv3.Location = new System.Drawing.Point(0, 0);
-            this.tv3.Name = "tv3";
-            this.tv3.Size = new System.Drawing.Size(271, 208);
-            this.tv3.TabIndex = 2;
-            this.tv3.Visible = false;
+            this.tvDepoIslemleri.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tvDepoIslemleri.Location = new System.Drawing.Point(0, 0);
+            this.tvDepoIslemleri.Name = "tvDepoIslemleri";
+            this.tvDepoIslemleri.Size = new System.Drawing.Size(271, 208);
+            this.tvDepoIslemleri.TabIndex = 2;
+            this.tvDepoIslemleri.Visible = false;
+            this.tvDepoIslemleri.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.tvDepoIslemleri_AfterSelect);
+            this.tvDepoIslemleri.DoubleClick += new System.EventHandler(this.tvDepoIslemleri_DoubleClick);
             // 
             // button7
             // 
@@ -330,14 +332,15 @@ namespace IEA_Erproject102AA_Main
             this.button6.UseVisualStyleBackColor = true;
             this.button6.Click += new System.EventHandler(this.button6_Click);
             // 
-            // button3
+            // btnDepoIslemleri
             // 
-            this.button3.Location = new System.Drawing.Point(179, 17);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(74, 62);
-            this.button3.TabIndex = 2;
-            this.button3.Text = "button3";
-            this.button3.UseVisualStyleBackColor = true;
+            this.btnDepoIslemleri.Location = new System.Drawing.Point(179, 17);
+            this.btnDepoIslemleri.Name = "btnDepoIslemleri";
+            this.btnDepoIslemleri.Size = new System.Drawing.Size(74, 62);
+            this.btnDepoIslemleri.TabIndex = 2;
+            this.btnDepoIslemleri.Text = "Depo İşlemleri";
+            this.btnDepoIslemleri.UseVisualStyleBackColor = true;
+            this.btnDepoIslemleri.Click += new System.EventHandler(this.btnDepoIslemleri_Click);
             // 
             // btnUrunGiris
             // 
@@ -469,7 +472,7 @@ namespace IEA_Erproject102AA_Main
         private System.Windows.Forms.TreeView tv5;
         private System.Windows.Forms.TreeView tv8;
         private System.Windows.Forms.TreeView tv4;
-        private System.Windows.Forms.TreeView tv3;
+        private System.Windows.Forms.TreeView tvDepoIslemleri;
         private System.Windows.Forms.TreeView tvUrunIslemleri;
         private System.Windows.Forms.TreeView tvBilgiGirisİslemleri;
         private System.Windows.Forms.Button button7;
@@ -478,7 +481,7 @@ namespace IEA_Erproject102AA_Main
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.Button button5;
         private System.Windows.Forms.Button button6;
-        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button btnDepoIslemleri;
         private System.Windows.Forms.Button btnUrunGiris;
         private System.Windows.Forms.Button btnBilgiGiris;
     }

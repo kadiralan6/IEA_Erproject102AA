@@ -14,6 +14,7 @@ namespace IEA_Erproject102AA_Main.BilgiGirisİslemleri.Firmalar
 {
     public partial class frmFirmalarListesi : Form
     {
+        public bool Secim = false;
         private ErpProject102Entities erp = new ErpProject102Entities();
         frmFirmaGiris frm = new frmFirmaGiris();
         private int secimId;
@@ -29,12 +30,13 @@ namespace IEA_Erproject102AA_Main.BilgiGirisİslemleri.Firmalar
         private void Liste_DoubleClick(object sender, EventArgs e)
         {
             secimId = (int?)Liste.CurrentRow.Cells[0].Value ?? -1;
-            if (secimId > 0 || Application.OpenForms["frmFirmaGiris"] == null)
+            if (secimId > 0 && Secim && Application.OpenForms["frmFirmaGiris"] == null)
             {
-                frmFirmaGiris frm = new frmFirmaGiris();
-                frm.MdiParent = Form.ActiveForm;
-                frm.Show();
-                frm.Ac(secimId);
+                //frmFirmaGiris frm = new frmFirmaGiris();
+                //frm.MdiParent = Form.ActiveForm;
+                //frm.Show();
+                //frm.Ac(secimId);
+                Home.Aktarma = secimId;
                 Close();
             }
             else if (Application.OpenForms["frmFirmaGiris"] != null)

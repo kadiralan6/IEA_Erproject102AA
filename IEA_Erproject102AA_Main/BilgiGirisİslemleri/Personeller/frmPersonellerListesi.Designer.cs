@@ -153,6 +153,8 @@ namespace IEA_Erproject102AA_Main.BilgiGirisİslemleri.Personeller
             this.PerListBilgi.RowTemplate.Height = 24;
             this.PerListBilgi.Size = new System.Drawing.Size(1349, 234);
             this.PerListBilgi.TabIndex = 13;
+            this.PerListBilgi.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.PerListBilgi_CellContentClick);
+            this.PerListBilgi.DoubleClick += new System.EventHandler(this.PerListBilgi_DoubleClick);
             // 
             // Id
             // 

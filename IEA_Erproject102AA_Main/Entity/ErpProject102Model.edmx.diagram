@@ -16,6 +16,11 @@
         <AssociationConnector Association="ErpProject102Model.FK_tblCariler_TotblSehirler" ManuallyRouted="false" />
         <AssociationConnector Association="ErpProject102Model.FK_tblPersonelDetay_tblCariler" ManuallyRouted="false" />
         <AssociationConnector Association="ErpProject102Model.FK_tblUrunler1_tblCariler" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="ErpProject102Model.tblStokDurum" Width="1.5" PointX="0.75" PointY="0.75" />
+        <EntityTypeShape EntityType="ErpProject102Model.tblStokGirisAlt" Width="1.5" PointX="0.75" PointY="9.75" />
+        <EntityTypeShape EntityType="ErpProject102Model.tblStokGirisUst" Width="1.5" PointX="11.625" PointY="5.25" />
+        <AssociationConnector Association="ErpProject102Model.FK_tblStokGirisUst_tblCariGuplari" />
+        <AssociationConnector Association="ErpProject102Model.FK_tblStokGirisUst_tblCariler" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

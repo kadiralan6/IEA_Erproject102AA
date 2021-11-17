@@ -14,8 +14,8 @@ namespace IEA_Erproject102AA_Main.BilgiGirisİslemleri.Doktorlar
 {
     public partial class frmDoktorlarListesi : Form
     {
-
-       private ErpProject102Entities erp = new ErpProject102Entities();
+        public bool Secim = false;
+        private ErpProject102Entities erp = new ErpProject102Entities();
         frmHastaneGirisEkrani frm = new frmHastaneGirisEkrani();
         private int secimId;
         public frmDoktorlarListesi()
@@ -67,12 +67,13 @@ namespace IEA_Erproject102AA_Main.BilgiGirisİslemleri.Doktorlar
         private void DoktListBilgi_DoubleClick(object sender, EventArgs e)
         {
             secimId = (int?)PerListBilgi.CurrentRow.Cells[0].Value ?? -1;
-            if (secimId > 0 || Application.OpenForms["frmDoktorGirisEkrani"] == null)
+            if (secimId > 0 && Secim && Application.OpenForms["frmDoktorGirisEkrani"] == null)
             {
-                frmDoktorGirisEkrani frm = new frmDoktorGirisEkrani();
-                frm.MdiParent = Form.ActiveForm;
-                frm.Show();
-                frm.Ac(secimId);
+                //frmDoktorGirisEkrani frm = new frmDoktorGirisEkrani();
+                //frm.MdiParent = Form.ActiveForm;
+                //frm.Show();
+                //frm.Ac(secimId);
+                Home.Aktarma = secimId;
                 Close();
             }
             else if (Application.OpenForms["frmDoktorGirisEkrani"] != null)
