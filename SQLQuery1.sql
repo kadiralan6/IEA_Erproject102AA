@@ -1,0 +1,3 @@
+﻿truncate table tblStokDurum
+truncate table tblStokGirisAlt
+truncate table tblStokGirisUst

@@ -45,13 +45,13 @@ namespace IEA_Erproject102AA_Main.Urunler
                 Liste.Rows[i].Cells[1].Value = sira;
                 Liste.Rows[i].Cells[2].Value = k.UrunGenelNo;
                 Liste.Rows[i].Cells[3].Value = k.UrunKodu;
-              //  Liste.Rows[i].Cells[4].Value = k.UrunAdi1;
+               Liste.Rows[i].Cells[4].Value = k.UrunAdi;
                 i++; sira++;
             }
             Liste.AllowUserToAddRows = false;
             Liste.ReadOnly = true;
             Liste.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            lblFirmaKodu.Text = n.UrunGenelKodu();
+            lblUrunKodu.Text = n.UrunGenelKodu();
             txtGenelNo.Text = n.UrunGenelKodu();
         }
 
@@ -79,14 +79,15 @@ namespace IEA_Erproject102AA_Main.Urunler
                 try
                 {
                 tblUrunler1 urn = new tblUrunler1();
-             //   urn.UrunAdi = txtUrunAi.Text;
-                urn.UrunGenelNo = txtGenelNo.Text;
+                urn.UrunAdi = txtUrunAdi.Text;
+                urn.UrunGenelNo = n.UrunGenelKodu();
                 urn.UrunKodu = txtUrunKodu.Text;
                 urn.AlisFiyat = decimal.Parse(txtUrunAFiyat.Text);
                 urn.SatisFiyat = decimal.Parse(txtUrunSFiyat.Text);
                 urn.DistributorId = (int)txtDistributor.SelectedValue;
                 urn.KutuIcerik = txtKutuIcerik.Text;
                 urn.UrunAciklama = txtUrunAciklama.Text;
+                urn.KullanimSuresiAy = txtKullanimSuresi.Value; //field bi bak
                 urn.SaveDate = DateTime.Now;
                 urn.SaveUserId = 1;
                 urn.isActive = true;
@@ -158,10 +159,12 @@ namespace IEA_Erproject102AA_Main.Urunler
                 txtDistributor.Text = urn.tblCariler.CariAdi;
                 txtGenelNo.Text = urn.UrunGenelNo;
                 txtUrunKodu.Text = urn.UrunKodu;
+                txtUrunAdi.Text = urn.UrunAdi;
                 txtUrunAciklama.Text = urn.UrunAciklama;
                 txtUrunAFiyat.Text = urn.AlisFiyat.ToString();
                 txtUrunSFiyat.Text = urn.SatisFiyat.ToString();
                 txtKutuIcerik.Text = urn.KutuIcerik;
+               if(urn.KullanimSuresiAy!=null) txtKullanimSuresi.Value = urn.KullanimSuresiAy.Value;
 
             }
             catch (Exception e)
@@ -187,6 +190,7 @@ namespace IEA_Erproject102AA_Main.Urunler
                 urn.DistributorId = (int)txtDistributor.SelectedValue;
                 urn.KutuIcerik = txtKutuIcerik.Text;
                 urn.UrunAciklama = txtUrunAciklama.Text;
+                urn.KullanimSuresiAy = txtKullanimSuresi.Value;
                 urn.UpdateDate = DateTime.Now;
                 urn.UpdateUserId = 1;
                 urn.isActive = true;
@@ -216,6 +220,21 @@ namespace IEA_Erproject102AA_Main.Urunler
                 Temizle();
                 Listele();
             }
+        }
+
+        private void btnGuncelle_Click(object sender, EventArgs e)
+        {
+            Guncelle();
+        }
+
+        private void btnTemizle_Click(object sender, EventArgs e)
+        {
+            Temizle();
+        }
+
+        private void btnCikis_Click(object sender, EventArgs e)
+        {
+            Close();
         }
     }
 }

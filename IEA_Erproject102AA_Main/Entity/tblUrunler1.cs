@@ -17,11 +17,13 @@ namespace IEA_Erproject102AA_Main.Entity
         public int Id { get; set; }
         public string UrunGenelNo { get; set; }
         public string UrunKodu { get; set; }
+        public string UrunAdi { get; set; }
         public string UrunAciklama { get; set; }
         public string KutuIcerik { get; set; }
         public Nullable<int> DistributorId { get; set; }
         public Nullable<decimal> AlisFiyat { get; set; }
         public Nullable<decimal> SatisFiyat { get; set; }
+        public Nullable<decimal> KullanimSuresiAy { get; set; }
         public Nullable<System.DateTime> SaveDate { get; set; }
         public Nullable<int> SaveUserId { get; set; }
         public Nullable<System.DateTime> UpdateDate { get; set; }

@@ -39,17 +39,19 @@ namespace IEA_Erproject102AA_Main.Urunler
             this.label13 = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
             this.pnlOrta = new System.Windows.Forms.Panel();
+            this.txtKullanimSuresi = new System.Windows.Forms.NumericUpDown();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
             this.txtDistributor = new System.Windows.Forms.ComboBox();
             this.label8 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
             this.txtUrunSFiyat = new System.Windows.Forms.TextBox();
             this.txtUrunAFiyat = new System.Windows.Forms.TextBox();
             this.txtUrunKodu = new System.Windows.Forms.MaskedTextBox();
-            this.lblFirmaKodu = new System.Windows.Forms.Label();
+            this.lblUrunKodu = new System.Windows.Forms.Label();
             this.splitter1 = new System.Windows.Forms.Splitter();
             this.btnCikis = new System.Windows.Forms.Button();
             this.btnTemizle = new System.Windows.Forms.Button();
@@ -65,6 +67,7 @@ namespace IEA_Erproject102AA_Main.Urunler
             this.pnlAlt = new System.Windows.Forms.Panel();
             this.pnlUst = new System.Windows.Forms.Panel();
             this.pnlOrta.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txtKullanimSuresi)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Liste)).BeginInit();
             this.pnlUst.SuspendLayout();
             this.SuspendLayout();
@@ -145,6 +148,7 @@ namespace IEA_Erproject102AA_Main.Urunler
             // 
             // pnlOrta
             // 
+            this.pnlOrta.Controls.Add(this.txtKullanimSuresi);
             this.pnlOrta.Controls.Add(this.textBox1);
             this.pnlOrta.Controls.Add(this.txtGenelNo);
             this.pnlOrta.Controls.Add(this.label9);
@@ -159,6 +163,7 @@ namespace IEA_Erproject102AA_Main.Urunler
             this.pnlOrta.Controls.Add(this.label13);
             this.pnlOrta.Controls.Add(this.label7);
             this.pnlOrta.Controls.Add(this.label14);
+            this.pnlOrta.Controls.Add(this.label2);
             this.pnlOrta.Controls.Add(this.label10);
             this.pnlOrta.Controls.Add(this.label12);
             this.pnlOrta.Controls.Add(this.txtUrunSFiyat);
@@ -169,6 +174,13 @@ namespace IEA_Erproject102AA_Main.Urunler
             this.pnlOrta.Name = "pnlOrta";
             this.pnlOrta.Size = new System.Drawing.Size(1210, 391);
             this.pnlOrta.TabIndex = 9;
+            // 
+            // txtKullanimSuresi
+            // 
+            this.txtKullanimSuresi.Location = new System.Drawing.Point(168, 265);
+            this.txtKullanimSuresi.Name = "txtKullanimSuresi";
+            this.txtKullanimSuresi.Size = new System.Drawing.Size(142, 22);
+            this.txtKullanimSuresi.TabIndex = 26;
             // 
             // textBox1
             // 
@@ -211,6 +223,15 @@ namespace IEA_Erproject102AA_Main.Urunler
             this.label7.Text = "Genel No : ";
             this.label7.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
+            // label2
+            // 
+            this.label2.Location = new System.Drawing.Point(12, 265);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(142, 23);
+            this.label2.TabIndex = 4;
+            this.label2.Text = "Kullanım Süresi(AY) :";
+            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // label10
             // 
             this.label10.Location = new System.Drawing.Point(71, 224);
@@ -250,17 +271,17 @@ namespace IEA_Erproject102AA_Main.Urunler
             this.txtUrunKodu.Size = new System.Drawing.Size(137, 22);
             this.txtUrunKodu.TabIndex = 9;
             // 
-            // lblFirmaKodu
+            // lblUrunKodu
             // 
-            this.lblFirmaKodu.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.lblFirmaKodu.BackColor = System.Drawing.Color.BurlyWood;
-            this.lblFirmaKodu.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.lblFirmaKodu.Location = new System.Drawing.Point(553, 12);
-            this.lblFirmaKodu.Name = "lblFirmaKodu";
-            this.lblFirmaKodu.Size = new System.Drawing.Size(142, 45);
-            this.lblFirmaKodu.TabIndex = 25;
-            this.lblFirmaKodu.Text = "***";
-            this.lblFirmaKodu.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblUrunKodu.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.lblUrunKodu.BackColor = System.Drawing.Color.BurlyWood;
+            this.lblUrunKodu.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.lblUrunKodu.Location = new System.Drawing.Point(553, 12);
+            this.lblUrunKodu.Name = "lblUrunKodu";
+            this.lblUrunKodu.Size = new System.Drawing.Size(142, 45);
+            this.lblUrunKodu.TabIndex = 25;
+            this.lblUrunKodu.Text = "***";
+            this.lblUrunKodu.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // splitter1
             // 
@@ -283,6 +304,7 @@ namespace IEA_Erproject102AA_Main.Urunler
             this.btnCikis.Size = new System.Drawing.Size(53, 45);
             this.btnCikis.TabIndex = 3;
             this.btnCikis.UseVisualStyleBackColor = false;
+            this.btnCikis.Click += new System.EventHandler(this.btnCikis_Click);
             // 
             // btnTemizle
             // 
@@ -295,6 +317,7 @@ namespace IEA_Erproject102AA_Main.Urunler
             this.btnTemizle.Size = new System.Drawing.Size(54, 45);
             this.btnTemizle.TabIndex = 2;
             this.btnTemizle.UseVisualStyleBackColor = true;
+            this.btnTemizle.Click += new System.EventHandler(this.btnTemizle_Click);
             // 
             // btnSil
             // 
@@ -320,6 +343,7 @@ namespace IEA_Erproject102AA_Main.Urunler
             this.btnGuncelle.Size = new System.Drawing.Size(54, 45);
             this.btnGuncelle.TabIndex = 1;
             this.btnGuncelle.UseVisualStyleBackColor = true;
+            this.btnGuncelle.Click += new System.EventHandler(this.btnGuncelle_Click);
             // 
             // btnKayit
             // 
@@ -401,7 +425,7 @@ namespace IEA_Erproject102AA_Main.Urunler
             // pnlUst
             // 
             this.pnlUst.BackColor = System.Drawing.Color.CadetBlue;
-            this.pnlUst.Controls.Add(this.lblFirmaKodu);
+            this.pnlUst.Controls.Add(this.lblUrunKodu);
             this.pnlUst.Controls.Add(this.btnCikis);
             this.pnlUst.Controls.Add(this.btnTemizle);
             this.pnlUst.Controls.Add(this.btnSil);
@@ -428,6 +452,7 @@ namespace IEA_Erproject102AA_Main.Urunler
             this.Load += new System.EventHandler(this.UrunGirisSistemi_Load);
             this.pnlOrta.ResumeLayout(false);
             this.pnlOrta.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txtKullanimSuresi)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Liste)).EndInit();
             this.pnlUst.ResumeLayout(false);
             this.ResumeLayout(false);
@@ -446,7 +471,7 @@ namespace IEA_Erproject102AA_Main.Urunler
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.Panel pnlOrta;
-        public System.Windows.Forms.Label lblFirmaKodu;
+        public System.Windows.Forms.Label lblUrunKodu;
         private System.Windows.Forms.Splitter splitter1;
         private System.Windows.Forms.Button btnCikis;
         private System.Windows.Forms.Button btnTemizle;
@@ -471,5 +496,7 @@ namespace IEA_Erproject102AA_Main.Urunler
         private System.Windows.Forms.DataGridViewTextBoxColumn GenelNo;
         private System.Windows.Forms.DataGridViewTextBoxColumn UrunKod;
         private System.Windows.Forms.DataGridViewTextBoxColumn UrunAdi1;
+        private System.Windows.Forms.NumericUpDown txtKullanimSuresi;
+        private System.Windows.Forms.Label label2;
     }
 }

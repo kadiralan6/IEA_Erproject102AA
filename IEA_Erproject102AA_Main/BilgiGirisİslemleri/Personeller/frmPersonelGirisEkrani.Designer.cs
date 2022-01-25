@@ -29,8 +29,8 @@ namespace IEA_Erproject102AA_Main.BilgiGirisİslemleri.Personeller
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.pnlAlt = new System.Windows.Forms.Panel();
             this.lblHastaneKodu = new System.Windows.Forms.Label();
             this.pnlUst = new System.Windows.Forms.Panel();
@@ -39,7 +39,7 @@ namespace IEA_Erproject102AA_Main.BilgiGirisİslemleri.Personeller
             this.btnSil = new System.Windows.Forms.Button();
             this.btnGuncelle = new System.Windows.Forms.Button();
             this.btnKayit = new System.Windows.Forms.Button();
-            this.txtDoktUnvan = new System.Windows.Forms.ComboBox();
+            this.txtPUnvan = new System.Windows.Forms.ComboBox();
             this.a = new System.Windows.Forms.TextBox();
             this.txtPerHastAdresi = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
@@ -59,21 +59,24 @@ namespace IEA_Erproject102AA_Main.BilgiGirisİslemleri.Personeller
             this.label8 = new System.Windows.Forms.Label();
             this.splitter1 = new System.Windows.Forms.Splitter();
             this.Liste = new System.Windows.Forms.DataGridView();
+            this.Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Sıra = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CariKodu = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CariAdi = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CariTel = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DoktorCep = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CariMail = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.basTarih = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.bitTarih = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.txtPerCepTel = new System.Windows.Forms.MaskedTextBox();
             this.txtPerisTel = new System.Windows.Forms.MaskedTextBox();
             this.txtPerDept = new System.Windows.Forms.ComboBox();
             this.pnlOrta = new System.Windows.Forms.Panel();
+            this.txtDurum = new System.Windows.Forms.CheckBox();
             this.txtPerIsAyrilis = new System.Windows.Forms.DateTimePicker();
             this.txtPerIsBaslangic = new System.Windows.Forms.DateTimePicker();
-            this.txtDurum = new System.Windows.Forms.CheckBox();
-            this.Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Sıra = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.PersonelDept = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.PersonelAdi = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.PerisTel = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.PerMail = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.PerisGiris = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.PerisBitis = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.label7 = new System.Windows.Forms.Label();
+            this.txtVnTc = new System.Windows.Forms.TextBox();
             this.pnlUst.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Liste)).BeginInit();
             this.pnlOrta.SuspendLayout();
@@ -83,16 +86,16 @@ namespace IEA_Erproject102AA_Main.BilgiGirisİslemleri.Personeller
             // 
             this.pnlAlt.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.pnlAlt.ForeColor = System.Drawing.SystemColors.ButtonShadow;
-            this.pnlAlt.Location = new System.Drawing.Point(0, 739);
+            this.pnlAlt.Location = new System.Drawing.Point(0, 737);
             this.pnlAlt.Name = "pnlAlt";
-            this.pnlAlt.Size = new System.Drawing.Size(1464, 22);
+            this.pnlAlt.Size = new System.Drawing.Size(1274, 22);
             this.pnlAlt.TabIndex = 11;
             // 
             // lblHastaneKodu
             // 
             this.lblHastaneKodu.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.lblHastaneKodu.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.lblHastaneKodu.Location = new System.Drawing.Point(680, 12);
+            this.lblHastaneKodu.Location = new System.Drawing.Point(585, 12);
             this.lblHastaneKodu.Name = "lblHastaneKodu";
             this.lblHastaneKodu.Size = new System.Drawing.Size(142, 45);
             this.lblHastaneKodu.TabIndex = 0;
@@ -111,7 +114,7 @@ namespace IEA_Erproject102AA_Main.BilgiGirisİslemleri.Personeller
             this.pnlUst.Dock = System.Windows.Forms.DockStyle.Top;
             this.pnlUst.Location = new System.Drawing.Point(0, 0);
             this.pnlUst.Name = "pnlUst";
-            this.pnlUst.Size = new System.Drawing.Size(1464, 83);
+            this.pnlUst.Size = new System.Drawing.Size(1274, 83);
             this.pnlUst.TabIndex = 10;
             // 
             // btnCikis
@@ -121,7 +124,7 @@ namespace IEA_Erproject102AA_Main.BilgiGirisİslemleri.Personeller
             this.btnCikis.BackColor = System.Drawing.SystemColors.ButtonFace;
             this.btnCikis.BackgroundImage = global::IEA_Erproject102AA_Main.Properties.Resources.exit_64;
             this.btnCikis.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btnCikis.Location = new System.Drawing.Point(1353, 12);
+            this.btnCikis.Location = new System.Drawing.Point(1163, 12);
             this.btnCikis.Name = "btnCikis";
             this.btnCikis.Size = new System.Drawing.Size(53, 49);
             this.btnCikis.TabIndex = 3;
@@ -179,13 +182,13 @@ namespace IEA_Erproject102AA_Main.BilgiGirisİslemleri.Personeller
             this.btnKayit.UseVisualStyleBackColor = true;
             this.btnKayit.Click += new System.EventHandler(this.btnKayit_Click);
             // 
-            // txtDoktUnvan
+            // txtPUnvan
             // 
-            this.txtDoktUnvan.FormattingEnabled = true;
-            this.txtDoktUnvan.Location = new System.Drawing.Point(155, 153);
-            this.txtDoktUnvan.Name = "txtDoktUnvan";
-            this.txtDoktUnvan.Size = new System.Drawing.Size(175, 24);
-            this.txtDoktUnvan.TabIndex = 1;
+            this.txtPUnvan.FormattingEnabled = true;
+            this.txtPUnvan.Location = new System.Drawing.Point(155, 153);
+            this.txtPUnvan.Name = "txtPUnvan";
+            this.txtPUnvan.Size = new System.Drawing.Size(175, 24);
+            this.txtPUnvan.TabIndex = 1;
             // 
             // a
             // 
@@ -336,9 +339,9 @@ namespace IEA_Erproject102AA_Main.BilgiGirisİslemleri.Personeller
             // splitter1
             // 
             this.splitter1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.splitter1.Location = new System.Drawing.Point(0, 505);
+            this.splitter1.Location = new System.Drawing.Point(0, 503);
             this.splitter1.Name = "splitter1";
-            this.splitter1.Size = new System.Drawing.Size(1464, 22);
+            this.splitter1.Size = new System.Drawing.Size(1274, 22);
             this.splitter1.TabIndex = 13;
             this.splitter1.TabStop = false;
             // 
@@ -348,21 +351,94 @@ namespace IEA_Erproject102AA_Main.BilgiGirisİslemleri.Personeller
             this.Liste.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Id,
             this.Sıra,
-            this.PersonelDept,
-            this.PersonelAdi,
-            this.PerisTel,
-            this.PerMail,
-            this.PerisGiris,
-            this.PerisBitis});
+            this.CariKodu,
+            this.CariAdi,
+            this.CariTel,
+            this.DoktorCep,
+            this.CariMail,
+            this.basTarih,
+            this.bitTarih});
             this.Liste.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.Liste.Location = new System.Drawing.Point(0, 527);
+            this.Liste.Location = new System.Drawing.Point(0, 525);
             this.Liste.Name = "Liste";
             this.Liste.RowHeadersWidth = 51;
             this.Liste.RowTemplate.Height = 24;
-            this.Liste.Size = new System.Drawing.Size(1464, 234);
+            this.Liste.Size = new System.Drawing.Size(1274, 234);
             this.Liste.TabIndex = 12;
             this.Liste.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.Liste_CellContentClick);
             this.Liste.DoubleClick += new System.EventHandler(this.Liste_DoubleClick);
+            // 
+            // Id
+            // 
+            this.Id.HeaderText = "İd";
+            this.Id.MinimumWidth = 6;
+            this.Id.Name = "Id";
+            this.Id.Visible = false;
+            this.Id.Width = 125;
+            // 
+            // Sıra
+            // 
+            this.Sıra.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.Sıra.HeaderText = "Sıra";
+            this.Sıra.MinimumWidth = 6;
+            this.Sıra.Name = "Sıra";
+            this.Sıra.Width = 62;
+            // 
+            // CariKodu
+            // 
+            this.CariKodu.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.CariKodu.HeaderText = "Personel Departman";
+            this.CariKodu.MinimumWidth = 6;
+            this.CariKodu.Name = "CariKodu";
+            this.CariKodu.Width = 153;
+            // 
+            // CariAdi
+            // 
+            this.CariAdi.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.CariAdi.HeaderText = "Personel Adi";
+            this.CariAdi.MinimumWidth = 6;
+            this.CariAdi.Name = "CariAdi";
+            // 
+            // CariTel
+            // 
+            this.CariTel.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.CariTel.HeaderText = "Personel İs Telefonu";
+            this.CariTel.MinimumWidth = 6;
+            this.CariTel.Name = "CariTel";
+            this.CariTel.Width = 153;
+            // 
+            // DoktorCep
+            // 
+            this.DoktorCep.HeaderText = "Doktor Cep";
+            this.DoktorCep.MinimumWidth = 6;
+            this.DoktorCep.Name = "DoktorCep";
+            this.DoktorCep.Width = 125;
+            // 
+            // CariMail
+            // 
+            this.CariMail.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.CariMail.HeaderText = "Personel Mail";
+            this.CariMail.MinimumWidth = 6;
+            this.CariMail.Name = "CariMail";
+            this.CariMail.Width = 112;
+            // 
+            // basTarih
+            // 
+            dataGridViewCellStyle1.Format = ".";
+            this.basTarih.DefaultCellStyle = dataGridViewCellStyle1;
+            this.basTarih.HeaderText = "Personel İş Giriş Zamanı";
+            this.basTarih.MinimumWidth = 6;
+            this.basTarih.Name = "basTarih";
+            this.basTarih.Width = 125;
+            // 
+            // bitTarih
+            // 
+            dataGridViewCellStyle2.Format = ".";
+            this.bitTarih.DefaultCellStyle = dataGridViewCellStyle2;
+            this.bitTarih.HeaderText = "Personel İş bitiş Tarihi";
+            this.bitTarih.MinimumWidth = 6;
+            this.bitTarih.Name = "bitTarih";
+            this.bitTarih.Width = 125;
             // 
             // txtPerCepTel
             // 
@@ -395,7 +471,7 @@ namespace IEA_Erproject102AA_Main.BilgiGirisİslemleri.Personeller
             this.pnlOrta.Controls.Add(this.txtPerIsAyrilis);
             this.pnlOrta.Controls.Add(this.txtPerIsBaslangic);
             this.pnlOrta.Controls.Add(this.pnlAlt);
-            this.pnlOrta.Controls.Add(this.txtDoktUnvan);
+            this.pnlOrta.Controls.Add(this.txtPUnvan);
             this.pnlOrta.Controls.Add(this.a);
             this.pnlOrta.Controls.Add(this.txtPerHastAdresi);
             this.pnlOrta.Controls.Add(this.label1);
@@ -403,10 +479,12 @@ namespace IEA_Erproject102AA_Main.BilgiGirisİslemleri.Personeller
             this.pnlOrta.Controls.Add(this.label2);
             this.pnlOrta.Controls.Add(this.label5);
             this.pnlOrta.Controls.Add(this.label6);
+            this.pnlOrta.Controls.Add(this.txtVnTc);
             this.pnlOrta.Controls.Add(this.txtPerMail);
             this.pnlOrta.Controls.Add(this.txtPerAdi);
             this.pnlOrta.Controls.Add(this.txtPerSehir);
             this.pnlOrta.Controls.Add(this.label3);
+            this.pnlOrta.Controls.Add(this.label7);
             this.pnlOrta.Controls.Add(this.label13);
             this.pnlOrta.Controls.Add(this.label14);
             this.pnlOrta.Controls.Add(this.label16);
@@ -419,8 +497,20 @@ namespace IEA_Erproject102AA_Main.BilgiGirisİslemleri.Personeller
             this.pnlOrta.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnlOrta.Location = new System.Drawing.Point(0, 0);
             this.pnlOrta.Name = "pnlOrta";
-            this.pnlOrta.Size = new System.Drawing.Size(1464, 761);
+            this.pnlOrta.Size = new System.Drawing.Size(1274, 759);
             this.pnlOrta.TabIndex = 14;
+            // 
+            // txtDurum
+            // 
+            this.txtDurum.AutoSize = true;
+            this.txtDurum.Location = new System.Drawing.Point(849, 336);
+            this.txtDurum.Name = "txtDurum";
+            this.txtDurum.Size = new System.Drawing.Size(166, 21);
+            this.txtDurum.TabIndex = 13;
+            this.txtDurum.Text = "İş Bitiş Tarihi eklensin";
+            this.txtDurum.UseVisualStyleBackColor = true;
+            this.txtDurum.Visible = false;
+            this.txtDurum.CheckedChanged += new System.EventHandler(this.txtDurum_CheckedChanged);
             // 
             // txtPerIsAyrilis
             // 
@@ -439,88 +529,27 @@ namespace IEA_Erproject102AA_Main.BilgiGirisİslemleri.Personeller
             this.txtPerIsBaslangic.Size = new System.Drawing.Size(200, 22);
             this.txtPerIsBaslangic.TabIndex = 12;
             // 
-            // txtDurum
+            // label7
             // 
-            this.txtDurum.AutoSize = true;
-            this.txtDurum.Location = new System.Drawing.Point(849, 336);
-            this.txtDurum.Name = "txtDurum";
-            this.txtDurum.Size = new System.Drawing.Size(166, 21);
-            this.txtDurum.TabIndex = 13;
-            this.txtDurum.Text = "İş Bitiş Tarihi eklensin";
-            this.txtDurum.UseVisualStyleBackColor = true;
-            this.txtDurum.Visible = false;
-            this.txtDurum.CheckedChanged += new System.EventHandler(this.txtDurum_CheckedChanged);
+            this.label7.Location = new System.Drawing.Point(36, 454);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(100, 23);
+            this.label7.TabIndex = 4;
+            this.label7.Text = "Personel TcNo";
+            this.label7.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
-            // Id
+            // txtVnTc
             // 
-            this.Id.HeaderText = "İd";
-            this.Id.MinimumWidth = 6;
-            this.Id.Name = "Id";
-            this.Id.Visible = false;
-            this.Id.Width = 125;
-            // 
-            // Sıra
-            // 
-            this.Sıra.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
-            this.Sıra.HeaderText = "Sıra";
-            this.Sıra.MinimumWidth = 6;
-            this.Sıra.Name = "Sıra";
-            this.Sıra.Width = 62;
-            // 
-            // PersonelDept
-            // 
-            this.PersonelDept.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
-            this.PersonelDept.HeaderText = "Personel Departman";
-            this.PersonelDept.MinimumWidth = 6;
-            this.PersonelDept.Name = "PersonelDept";
-            this.PersonelDept.Width = 153;
-            // 
-            // PersonelAdi
-            // 
-            this.PersonelAdi.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.PersonelAdi.HeaderText = "Personel Adi";
-            this.PersonelAdi.MinimumWidth = 6;
-            this.PersonelAdi.Name = "PersonelAdi";
-            // 
-            // PerisTel
-            // 
-            this.PerisTel.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
-            this.PerisTel.HeaderText = "Personel İs Telefonu";
-            this.PerisTel.MinimumWidth = 6;
-            this.PerisTel.Name = "PerisTel";
-            this.PerisTel.Width = 153;
-            // 
-            // PerMail
-            // 
-            this.PerMail.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
-            this.PerMail.HeaderText = "Personel Mail";
-            this.PerMail.MinimumWidth = 6;
-            this.PerMail.Name = "PerMail";
-            this.PerMail.Width = 112;
-            // 
-            // PerisGiris
-            // 
-            dataGridViewCellStyle5.Format = ".";
-            this.PerisGiris.DefaultCellStyle = dataGridViewCellStyle5;
-            this.PerisGiris.HeaderText = "Personel İş Giriş Zamanı";
-            this.PerisGiris.MinimumWidth = 6;
-            this.PerisGiris.Name = "PerisGiris";
-            this.PerisGiris.Width = 125;
-            // 
-            // PerisBitis
-            // 
-            dataGridViewCellStyle6.Format = ".";
-            this.PerisBitis.DefaultCellStyle = dataGridViewCellStyle6;
-            this.PerisBitis.HeaderText = "Personel İş bitiş Tarihi";
-            this.PerisBitis.MinimumWidth = 6;
-            this.PerisBitis.Name = "PerisBitis";
-            this.PerisBitis.Width = 125;
+            this.txtVnTc.Location = new System.Drawing.Point(155, 454);
+            this.txtVnTc.Name = "txtVnTc";
+            this.txtVnTc.Size = new System.Drawing.Size(175, 22);
+            this.txtVnTc.TabIndex = 7;
             // 
             // frmPersonelGirisEkrani
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1464, 761);
+            this.ClientSize = new System.Drawing.Size(1274, 759);
             this.Controls.Add(this.pnlUst);
             this.Controls.Add(this.splitter1);
             this.Controls.Add(this.Liste);
@@ -545,7 +574,7 @@ namespace IEA_Erproject102AA_Main.BilgiGirisİslemleri.Personeller
         private System.Windows.Forms.Button btnSil;
         private System.Windows.Forms.Button btnGuncelle;
         private System.Windows.Forms.Button btnKayit;
-        private System.Windows.Forms.ComboBox txtDoktUnvan;
+        private System.Windows.Forms.ComboBox txtPUnvan;
         private System.Windows.Forms.TextBox a;
         public System.Windows.Forms.TextBox txtPerHastAdresi;
         private System.Windows.Forms.Label label1;
@@ -571,14 +600,17 @@ namespace IEA_Erproject102AA_Main.BilgiGirisİslemleri.Personeller
         private System.Windows.Forms.Panel pnlOrta;
         private System.Windows.Forms.DateTimePicker txtPerIsAyrilis;
         private System.Windows.Forms.DateTimePicker txtPerIsBaslangic;
+        private System.Windows.Forms.CheckBox txtDurum;
         private System.Windows.Forms.DataGridViewTextBoxColumn Id;
         private System.Windows.Forms.DataGridViewTextBoxColumn Sıra;
-        private System.Windows.Forms.DataGridViewTextBoxColumn PersonelDept;
-        private System.Windows.Forms.DataGridViewTextBoxColumn PersonelAdi;
-        private System.Windows.Forms.DataGridViewTextBoxColumn PerisTel;
-        private System.Windows.Forms.DataGridViewTextBoxColumn PerMail;
-        private System.Windows.Forms.DataGridViewTextBoxColumn PerisGiris;
-        private System.Windows.Forms.DataGridViewTextBoxColumn PerisBitis;
-        private System.Windows.Forms.CheckBox txtDurum;
+        private System.Windows.Forms.DataGridViewTextBoxColumn CariKodu;
+        private System.Windows.Forms.DataGridViewTextBoxColumn CariAdi;
+        private System.Windows.Forms.DataGridViewTextBoxColumn CariTel;
+        private System.Windows.Forms.DataGridViewTextBoxColumn DoktorCep;
+        private System.Windows.Forms.DataGridViewTextBoxColumn CariMail;
+        private System.Windows.Forms.DataGridViewTextBoxColumn basTarih;
+        private System.Windows.Forms.DataGridViewTextBoxColumn bitTarih;
+        public System.Windows.Forms.TextBox txtVnTc;
+        private System.Windows.Forms.Label label7;
     }
 }

@@ -16,8 +16,8 @@ namespace IEA_Erproject102AA_Main.Entity
     {
         public int Id { get; set; }
         public Nullable<int> CariId { get; set; }
-        public Nullable<System.DateTime> isBasiTarih { get; set; }
-        public Nullable<System.DateTime> isBitisTarih { get; set; }
+        public Nullable<System.DateTime> IsBasiTarih { get; set; }
+        public Nullable<System.DateTime> IsBitisTarih { get; set; }
     
         public virtual tblCariler tblCariler { get; set; }
     }

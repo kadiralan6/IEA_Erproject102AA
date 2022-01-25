@@ -52,7 +52,7 @@ namespace IEA_Erproject102AA_Main.BilgiGirisİslemleri.Doktorlar
                 Liste.Rows[i].Cells[5].Value = k.Dmail;             
                 i++; sira++;
             }
-            Liste.AllowUserToAddRows = false;
+            Liste.AllowUserToAddRows = false; //Kullanıcıya satır ekleme seçeneğinin görüntülenip görüntülenmediğini belirten bir değer alır veya ayarlar.
             Liste.ReadOnly = true;
             Liste.SelectionMode = DataGridViewSelectionMode.FullRowSelect; // bu nedir Veriye tıklandığında satır seçimi sağlama.
             lblHastaneKodu.Text = n.CariKoduDoktor();
@@ -108,7 +108,7 @@ namespace IEA_Erproject102AA_Main.BilgiGirisİslemleri.Doktorlar
 
                     hst.CariUnvan = txtDoktUnvan.Text;
                     hst.VDairesi = txtDkVDairesi.Text;
-                    hst.VNoTcno = txtDkVTcNo.Text;
+                    hst.VnoTcno = txtDkVTcNo.Text;
                  
                     hst.SehirId = (int?)txtDokSehir.SelectedValue ?? -1; //3. yontem  //gelen veri int ise gönder yoksa -1 gonder(null ise)
                     
@@ -161,7 +161,7 @@ namespace IEA_Erproject102AA_Main.BilgiGirisİslemleri.Doktorlar
 
                 hst.CariUnvan = txtDoktUnvan.Text;
                 hst.VDairesi = txtDkVDairesi.Text;
-                hst.VNoTcno = txtDkVTcNo.Text;
+                hst.VnoTcno = txtDkVTcNo.Text;
                 if (txtDokSehir.SelectedValue != null)
                 {
                     hst.SehirId = (int?)txtDokSehir.SelectedValue ?? -1;
@@ -242,7 +242,7 @@ namespace IEA_Erproject102AA_Main.BilgiGirisİslemleri.Doktorlar
                 txtDktMyAdres.Text = hst.Adres2;
 
                 txtDkVDairesi.Text = hst.VDairesi;
-                txtDkVTcNo.Text = hst.VNoTcno;
+                txtDkVTcNo.Text = hst.VnoTcno;
       
                 txtDkDepartman.Text = hst.YetkiliDep1;
                 txtDoktUnvan.Text = hst.CariUnvan;

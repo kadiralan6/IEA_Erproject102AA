@@ -103,6 +103,12 @@
     <Compile Include="BilgiGirisİslemleri\Personeller\frmPersonellerListesi.Designer.cs">
       <DependentUpon>frmPersonellerListesi.cs</DependentUpon>
     </Compile>
+    <Compile Include="DepoIslemleri\StokIslemleri\btnStokGirisGuncelleme.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DepoIslemleri\StokIslemleri\btnStokGirisGuncelleme.Designer.cs">
+      <DependentUpon>btnStokGirisGuncelleme.cs</DependentUpon>
+    </Compile>
     <Compile Include="DepoIslemleri\StokIslemleri\frmStokGiris.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -206,8 +212,14 @@
     <EmbeddedResource Include="BilgiGirisİslemleri\Personeller\frmPersonellerListesi.resx">
       <DependentUpon>frmPersonellerListesi.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="DepoIslemleri\StokIslemleri\btnStokGirisGuncelleme.resx">
+      <DependentUpon>btnStokGirisGuncelleme.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="DepoIslemleri\StokIslemleri\frmStokGiris.resx">
       <DependentUpon>frmStokGiris.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DepoIslemleri\StokIslemleri\frmStokListesi.resx">
+      <DependentUpon>frmStokListesi.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Home.resx">
       <DependentUpon>Home.cs</DependentUpon>

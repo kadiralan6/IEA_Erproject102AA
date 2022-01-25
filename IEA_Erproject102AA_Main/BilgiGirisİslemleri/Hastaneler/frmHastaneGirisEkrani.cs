@@ -151,7 +151,7 @@ namespace IEA_Erproject102AA_Main.BilgiGirisİslemleri.Hastaneler
 
                     hst.CariUnvan = txtHastUnvan.Text;
                     hst.VDairesi = txtVergiD.Text;
-                    hst.VNoTcno = txtVergiTc.Text;
+                    hst.VnoTcno = txtVergiTc.Text;
 
                     // hst.SehirId = erp.tblSehirler.First(x => x.sehir == txtSehir.Text).id; //1.yontem
                     //hst.SehirId = txtSehir.SelectedValue !=null ? (int)txtSehir.SelectedValue=-1; //turner if incele 2.yontem
@@ -228,7 +228,7 @@ namespace IEA_Erproject102AA_Main.BilgiGirisİslemleri.Hastaneler
 
                 hst.CariUnvan = txtHastUnvan.Text;
                 hst.VDairesi = txtVergiD.Text;
-                hst.VNoTcno = txtVergiTc.Text;
+                hst.VnoTcno = txtVergiTc.Text;
 
                 if (txtSehir.SelectedValue != null)
                 {
@@ -343,7 +343,7 @@ namespace IEA_Erproject102AA_Main.BilgiGirisİslemleri.Hastaneler
 
                 txtHastUnvan.Text = hst.CariUnvan;
                 txtVergiD.Text = hst.VDairesi;
-                txtVergiTc.Text = hst.VNoTcno;
+                txtVergiTc.Text = hst.VnoTcno;
 
                 txtSehir.Text = hst.tblSehirler.sehir == null ? "" : hst.tblSehirler.sehir;
                 lblHastaneKodu.Text = hst.CariKodu;

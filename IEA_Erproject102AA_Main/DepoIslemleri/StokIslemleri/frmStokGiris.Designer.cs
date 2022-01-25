@@ -29,8 +29,9 @@ namespace IEA_Erproject102AA_Main.DepoIslemleri.StokIslemleri
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            this.components = new System.ComponentModel.Container();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             this.pnlUst = new System.Windows.Forms.Panel();
             this.btnCikis = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
@@ -57,6 +58,10 @@ namespace IEA_Erproject102AA_Main.DepoIslemleri.StokIslemleri
             this.label9 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.splitter1 = new System.Windows.Forms.Splitter();
+            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.ekleToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.guncelleToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.silToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.Sira = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Barkod = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.UrunKodu = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -66,10 +71,12 @@ namespace IEA_Erproject102AA_Main.DepoIslemleri.StokIslemleri
             this.UTarih = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.STarih = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.AlisFiyat = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.pnlUst.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Liste)).BeginInit();
             this.panel2.SuspendLayout();
+            this.contextMenuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // pnlUst
@@ -186,7 +193,9 @@ namespace IEA_Erproject102AA_Main.DepoIslemleri.StokIslemleri
             this.Not,
             this.UTarih,
             this.STarih,
-            this.AlisFiyat});
+            this.AlisFiyat,
+            this.Id});
+            this.Liste.ContextMenuStrip = this.contextMenuStrip1;
             this.Liste.Dock = System.Windows.Forms.DockStyle.Fill;
             this.Liste.Location = new System.Drawing.Point(0, 67);
             this.Liste.Name = "Liste";
@@ -194,8 +203,9 @@ namespace IEA_Erproject102AA_Main.DepoIslemleri.StokIslemleri
             this.Liste.RowTemplate.Height = 24;
             this.Liste.Size = new System.Drawing.Size(1035, 586);
             this.Liste.TabIndex = 2;
+            this.Liste.CellContextMenuStripChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.Liste_CellEndEdit);
             this.Liste.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.Liste_CellEndEdit);
-            this.Liste.EditingControlShowing += new System.Windows.Forms.DataGridViewEditingControlShowingEventHandler(this.dataGridView1_EditingControlShowing);
+            this.Liste.EditingControlShowing += new System.Windows.Forms.DataGridViewEditingControlShowingEventHandler(this.Liste_EditingControlShowing);
             // 
             // panel2
             // 
@@ -293,7 +303,7 @@ namespace IEA_Erproject102AA_Main.DepoIslemleri.StokIslemleri
             this.label7.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(6, 309);
+            this.label7.Location = new System.Drawing.Point(6, 316);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(71, 17);
             this.label7.TabIndex = 5;
@@ -304,7 +314,7 @@ namespace IEA_Erproject102AA_Main.DepoIslemleri.StokIslemleri
             this.label8.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(9, 453);
+            this.label8.Location = new System.Drawing.Point(6, 466);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(64, 17);
             this.label8.TabIndex = 5;
@@ -326,7 +336,7 @@ namespace IEA_Erproject102AA_Main.DepoIslemleri.StokIslemleri
             this.label5.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(10, 244);
+            this.label5.Location = new System.Drawing.Point(6, 255);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(64, 17);
             this.label5.TabIndex = 5;
@@ -337,7 +347,7 @@ namespace IEA_Erproject102AA_Main.DepoIslemleri.StokIslemleri
             this.label4.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(11, 372);
+            this.label4.Location = new System.Drawing.Point(6, 389);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(77, 17);
             this.label4.TabIndex = 5;
@@ -369,6 +379,40 @@ namespace IEA_Erproject102AA_Main.DepoIslemleri.StokIslemleri
             this.splitter1.Size = new System.Drawing.Size(21, 586);
             this.splitter1.TabIndex = 4;
             this.splitter1.TabStop = false;
+            // 
+            // contextMenuStrip1
+            // 
+            this.contextMenuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
+            this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.ekleToolStripMenuItem,
+            this.guncelleToolStripMenuItem,
+            this.silToolStripMenuItem});
+            this.contextMenuStrip1.Name = "contextMenuStrip1";
+            this.contextMenuStrip1.Size = new System.Drawing.Size(140, 82);
+            // 
+            // ekleToolStripMenuItem
+            // 
+            this.ekleToolStripMenuItem.Image = global::IEA_Erproject102AA_Main.Properties.Resources.Save_icon64x64;
+            this.ekleToolStripMenuItem.Name = "ekleToolStripMenuItem";
+            this.ekleToolStripMenuItem.Size = new System.Drawing.Size(139, 26);
+            this.ekleToolStripMenuItem.Text = "Ekle";
+            this.ekleToolStripMenuItem.Click += new System.EventHandler(this.ekleToolStripMenuItem_Click);
+            // 
+            // guncelleToolStripMenuItem
+            // 
+            this.guncelleToolStripMenuItem.Image = global::IEA_Erproject102AA_Main.Properties.Resources.Update32x32;
+            this.guncelleToolStripMenuItem.Name = "guncelleToolStripMenuItem";
+            this.guncelleToolStripMenuItem.Size = new System.Drawing.Size(139, 26);
+            this.guncelleToolStripMenuItem.Text = "Guncelle";
+            this.guncelleToolStripMenuItem.Click += new System.EventHandler(this.guncelleToolStripMenuItem_Click);
+            // 
+            // silToolStripMenuItem
+            // 
+            this.silToolStripMenuItem.Image = global::IEA_Erproject102AA_Main.Properties.Resources.Sil64;
+            this.silToolStripMenuItem.Name = "silToolStripMenuItem";
+            this.silToolStripMenuItem.Size = new System.Drawing.Size(139, 26);
+            this.silToolStripMenuItem.Text = "Sil";
+            this.silToolStripMenuItem.Click += new System.EventHandler(this.silToolStripMenuItem_Click);
             // 
             // Sira
             // 
@@ -420,9 +464,9 @@ namespace IEA_Erproject102AA_Main.DepoIslemleri.StokIslemleri
             // UTarih
             // 
             this.UTarih.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
-            dataGridViewCellStyle1.Format = "d";
-            dataGridViewCellStyle1.NullValue = "-";
-            this.UTarih.DefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle5.Format = "d";
+            dataGridViewCellStyle5.NullValue = "-";
+            this.UTarih.DefaultCellStyle = dataGridViewCellStyle5;
             this.UTarih.HeaderText = "UT";
             this.UTarih.MinimumWidth = 6;
             this.UTarih.Name = "UTarih";
@@ -431,9 +475,9 @@ namespace IEA_Erproject102AA_Main.DepoIslemleri.StokIslemleri
             // STarih
             // 
             this.STarih.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
-            dataGridViewCellStyle2.Format = "d";
-            dataGridViewCellStyle2.NullValue = "-";
-            this.STarih.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle6.Format = "d";
+            dataGridViewCellStyle6.NullValue = "-";
+            this.STarih.DefaultCellStyle = dataGridViewCellStyle6;
             this.STarih.HeaderText = "SKT";
             this.STarih.MinimumWidth = 6;
             this.STarih.Name = "STarih";
@@ -446,6 +490,14 @@ namespace IEA_Erproject102AA_Main.DepoIslemleri.StokIslemleri
             this.AlisFiyat.MinimumWidth = 6;
             this.AlisFiyat.Name = "AlisFiyat";
             this.AlisFiyat.Width = 93;
+            // 
+            // Id
+            // 
+            this.Id.HeaderText = "id";
+            this.Id.MinimumWidth = 6;
+            this.Id.Name = "Id";
+            this.Id.Visible = false;
+            this.Id.Width = 125;
             // 
             // frmStokGiris
             // 
@@ -466,6 +518,7 @@ namespace IEA_Erproject102AA_Main.DepoIslemleri.StokIslemleri
             ((System.ComponentModel.ISupportInitialize)(this.Liste)).EndInit();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
+            this.contextMenuStrip1.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -498,6 +551,10 @@ namespace IEA_Erproject102AA_Main.DepoIslemleri.StokIslemleri
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.ComboBox txtUrunCombo;
+        private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
+        private System.Windows.Forms.ToolStripMenuItem ekleToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem guncelleToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem silToolStripMenuItem;
         private System.Windows.Forms.DataGridViewTextBoxColumn Sira;
         private System.Windows.Forms.DataGridViewTextBoxColumn Barkod;
         private System.Windows.Forms.DataGridViewTextBoxColumn UrunKodu;
@@ -507,5 +564,6 @@ namespace IEA_Erproject102AA_Main.DepoIslemleri.StokIslemleri
         private System.Windows.Forms.DataGridViewTextBoxColumn UTarih;
         private System.Windows.Forms.DataGridViewTextBoxColumn STarih;
         private System.Windows.Forms.DataGridViewTextBoxColumn AlisFiyat;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Id;
     }
 }

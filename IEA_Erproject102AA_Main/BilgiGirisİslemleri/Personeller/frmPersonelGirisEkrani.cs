@@ -30,6 +30,7 @@ namespace IEA_Erproject102AA_Main.BilgiGirisİslemleri.Personeller
         }
         private void ComboDoldur()
         {
+            txtPUnvan.DataSource = Enum.GetValues(typeof(enuPersonelUnvan));
             var dep1 = erp.tblDepartmanlar.Where(x => x.GrupId == 4).ToList();
            
             var seh = erp.tblSehirler.ToList(); // on kosul yok hepsini alıyoz
@@ -59,6 +60,7 @@ namespace IEA_Erproject102AA_Main.BilgiGirisİslemleri.Personeller
             txtPerDept.SelectedIndex = -1;
             txtDurum.Visible = false;
             txtPerIsAyrilis.Visible = false;
+            txtPerIsAyrilis.Visible = false;
 
         }
         private void Listele()
@@ -74,12 +76,14 @@ namespace IEA_Erproject102AA_Main.BilgiGirisİslemleri.Personeller
                        select new
                        {
                            id = s.Id,
-                           PDept = s.tblCariler.YetkiliDep1,
-                           Padi = s.tblCariler.CariAdi,
-                           Ptel = s.tblCariler.CariTel,
-                           Pmail = s.tblCariler.CariMail,
-                           PisG=s.tblCariler.isGiris,
-                           PisC=s.tblCariler.isCikis
+                           dkodu = s.tblCariler.CariKodu,
+                           dadi = s.tblCariler.CariAdi, 
+                           dtel = s.tblCariler.CariTel,
+                           dmail = s.tblCariler.CariMail,
+                           dyetcep = s.tblCariler.YetkiliCep1,
+                           dgtarih = s.IsBasiTarih,
+                           dbtarih = s.IsBitisTarih
+
 
                        }).ToList(); //new ihtayç  kadar çekmek için bunları form ekranında bize gözükecek yer kadar yaptık
 
@@ -88,12 +92,13 @@ namespace IEA_Erproject102AA_Main.BilgiGirisİslemleri.Personeller
                 Liste.Rows.Add();
                 Liste.Rows[i].Cells[0].Value = k.id;
                 Liste.Rows[i].Cells[1].Value = sira;
-                Liste.Rows[i].Cells[2].Value = k.PDept;
-                Liste.Rows[i].Cells[3].Value = k.Padi;
-                Liste.Rows[i].Cells[4].Value = k.Ptel;
-                Liste.Rows[i].Cells[5].Value = k.Pmail;                
-                Liste.Rows[i].Cells[6].Value = k.PisG;
-                Liste.Rows[i].Cells[7].Value = k.PisC;
+                Liste.Rows[i].Cells[2].Value = k.dkodu;
+                Liste.Rows[i].Cells[3].Value = k.dadi;
+                Liste.Rows[i].Cells[4].Value = k.dtel;
+                Liste.Rows[i].Cells[5].Value = k.dyetcep;
+                Liste.Rows[i].Cells[6].Value = k.dmail;
+                Liste.Rows[i].Cells[7].Value = k.dgtarih;
+                Liste.Rows[i].Cells[8].Value = k.dbtarih;
 
                 i++; sira++;
             }
@@ -124,39 +129,44 @@ namespace IEA_Erproject102AA_Main.BilgiGirisİslemleri.Personeller
                     hst.isActive = true;
                     hst.CariAdi = txtPerAdi.Text;
                     hst.CariMail = txtPerMail.Text;
-                    hst.CariTel = txtPerCepTel.Text;
-
-                    hst.Adres1 = txtPerHastAdresi.Text;
-                    hst.Adres2 = txtPerEvAdresi.Text;
-                    hst.isGiris = txtPerIsBaslangic.Value;
-                    hst.isCikis = txtPerIsAyrilis.Value;
-
-                    hst.YetkiliCep1 = txtPerisTel.Text;
+                    hst.CariTel = txtPerisTel.Text;
                     hst.YetkiliDep1 = txtPerDept.Text;
-                    hst.SehirId = (int?)txtPerSehir.SelectedValue ?? -1;
+                    hst.YetkiliCep1 = txtPerCepTel.Text;
+                    hst.Adres1 = txtPerEvAdresi.Text;
+                    hst.Adres2 = txtPerHastAdresi.Text;
+                  
+                    hst.CariUnvan = txtPUnvan.Text;
+                    hst.VnoTcno = txtVnTc.Text;
 
-                    hst.CariGrupId = 4;
-                    hst.CariTipId = 1;
+                    if (txtPerSehir.SelectedValue != null)
+                    {
+                        hst.SehirId = (int)txtPerSehir.SelectedValue;
+                    }
+                    //txtSehir.SelectedValue!=null ? (int) txtSehir.SelectedValue:-1;
+                    //erp.tblSehirler.First(x => x.sehir == txtSehir.Text).id;
+
                     hst.SaveDate = DateTime.Now;
                     hst.SaveUserId = 1;
-                    hst.CariKodu = hKodu; // sor
+                    hst.CariKodu = hKodu;
+                    hst.CariGrupId = 4;
+                    hst.CariTipId = 1;
+
 
                     erp.tblCariler.Add(hst);
                     erp.SaveChanges();
 
                     tblPersonelDetay pdet = new tblPersonelDetay();
-                    pdet.isBasiTarih = txtPerIsBaslangic.Value;
-                    pdet.CariId = erp.tblCariler.First(x => x.CariAdi ==
-                      txtPerAdi.Text).Id;
+                    pdet.IsBasiTarih = txtPerIsBaslangic.Value;
+                    pdet.CariId = erp.tblCariler.First(x => x.CariAdi == txtPerAdi.Text).Id;
+
                     erp.tblPersonelDetay.Add(pdet);
                     erp.SaveChanges();
 
 
+                    MessageBox.Show(@"Kayit Basarili");
 
-                    MessageBox.Show("Kayit Başarili");
-
-                    Listele();
                     Temizle();
+                    Listele();
 
                 }
             }
@@ -186,16 +196,21 @@ namespace IEA_Erproject102AA_Main.BilgiGirisİslemleri.Personeller
 
                 txtPerAdi.Text = hst.tblCariler.CariAdi;
                 txtPerMail.Text = hst.tblCariler.CariMail;
-                txtPerCepTel.Text = hst.tblCariler.CariTel;           
+                txtPerisTel.Text = hst.tblCariler.CariTel;
+
+                txtPerCepTel.Text = hst.tblCariler.YetkiliCep1;
 
                 txtPerDept.Text = hst.tblCariler.YetkiliDep1; //personel departmanı  
-                txtPerHastAdresi.Text = hst.tblCariler.Adres1;
-                txtPerEvAdresi.Text = hst.tblCariler.Adres2;
+                txtPerEvAdresi.Text = hst.tblCariler.Adres1;
+                txtPerHastAdresi.Text = hst.tblCariler.Adres2;
 
-                txtPerisTel.Text = hst.tblCariler.YetkiliCep1;
+                txtPUnvan.Text = hst.tblCariler.CariUnvan;
 
-                 txtPerIsBaslangic.Value = (DateTime)hst.tblCariler.isGiris;
-                 txtPerIsAyrilis.Value = (DateTime)hst.tblCariler.isCikis;
+               
+                txtVnTc.Text = hst.tblCariler.VnoTcno;
+
+                txtPerIsBaslangic.Value = (DateTime)hst.IsBasiTarih;
+                 txtPerIsAyrilis.Value = (DateTime)hst.IsBitisTarih;
 
                 txtPerSehir.Text = hst.tblCariler.tblSehirler == null ? "": hst.tblCariler.tblSehirler.sehir;
 
@@ -213,30 +228,35 @@ namespace IEA_Erproject102AA_Main.BilgiGirisİslemleri.Personeller
         }
         private void Guncelle()
         {
+            if (secimId < 0)
+            {
+                return;
+            }
             try
             {
-                tblCariler hst = erp.tblCariler.Find(secimId);
+                // tblCariler hst = erp.tblCariler.Find(secimId);
+                tblPersonelDetay hst = erp.tblPersonelDetay.Find(secimId);
+                hst.tblCariler.CariAdi = txtPerAdi.Text;
+                hst.tblCariler.CariMail = txtPerMail.Text;
+                hst.tblCariler.CariTel = txtPerCepTel.Text;
+                    
+                hst.tblCariler.YetkiliDep1 = txtPerDept.Text;            
+                hst.tblCariler.YetkiliCep1 = txtPerMail.Text;
+                  
+                    
+                hst.tblCariler.Adres1 = txtPerHastAdresi.Text;
+                hst.tblCariler.Adres2 = txtPerEvAdresi.Text;
+                hst.tblCariler.CariTipId = 1;
+                hst.tblCariler.CariUnvan = txtPUnvan.Text;
 
-                hst.CariAdi = txtPerAdi.Text;
-                hst.CariMail = txtPerMail.Text;
-                hst.CariTel = txtPerCepTel.Text;
-         
-                hst.YetkiliDep1 = txtPerDept.Text;            
-                hst.YetkiliCep1 = txtPerMail.Text;
-            
-
-                hst.Adres1 = txtPerHastAdresi.Text;
-                hst.Adres2 = txtPerEvAdresi.Text;
-                hst.CariTipId = 1;
-           
-                if(txtPerSehir.SelectedValue != null)
+                if (txtPerSehir.SelectedValue != null)
                 {
-                    hst.SehirId = (int)txtPerSehir.SelectedValue;
+                    hst.tblCariler.SehirId = (int)txtPerSehir.SelectedValue;
                 }
                
-                hst.UpdateDate = DateTime.Now;
-                hst.UpdateUserId = 1;
-                hst.CariKodu = lblHastaneKodu.Text;
+                hst.tblCariler.UpdateDate = DateTime.Now;
+                hst.tblCariler.UpdateUserId = 1;
+                hst.tblCariler.CariKodu = lblHastaneKodu.Text;
                 
 
                 erp.SaveChanges();

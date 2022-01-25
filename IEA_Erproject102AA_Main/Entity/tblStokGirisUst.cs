@@ -20,6 +20,7 @@ namespace IEA_Erproject102AA_Main.Entity
         public Nullable<int> CariAdiId { get; set; }
         public Nullable<int> GirisTipi { get; set; }
         public string FaturaNo { get; set; }
+        public Nullable<System.DateTime> FaturaTarih { get; set; }
         public string Aciklama { get; set; }
         public Nullable<System.DateTime> SaveDate { get; set; }
         public Nullable<int> SaveUserId { get; set; }

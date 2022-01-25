@@ -1,6 +1,7 @@
 ﻿using IEA_Erproject102AA_Main.BilgiGirisİslemleri.Hastaneler;
 using IEA_Erproject102AA_Main.Entity;
 using IEA_Erproject102AA_Main.Fonksiyonlar;
+using IEA_Erproject102AA_Main.Urunler;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -56,7 +57,7 @@ namespace IEA_Erproject102AA_Main.DepoIslemleri.StokIslemleri
 
             }
 
-            txtCariGrup.DataSource = erp.cariler.ToList();
+            txtCariGrup.DataSource = erp.tblCariler.ToList();
             txtCariGrup.ValueMember = "Id";
             txtCariGrup.DisplayMember = "GrupAdi";
             txtCariGrup.SelectedIndex = -1;
@@ -100,6 +101,7 @@ namespace IEA_Erproject102AA_Main.DepoIslemleri.StokIslemleri
                     CariAdiId = erp.tblCariler.First(x => x.CariAdi == txtCariAdi.Text).Id,
                     GirisTipi = txtGirisTipi.SelectedIndex+1,
                     FaturaNo = txtFaturaNo.Text,
+                    FaturaTarih = txtGirisTarih.Value,
                     Aciklama = txtAciklama.Text,
                     isActive = true,
                     SaveDate = DateTime.Now,
@@ -158,8 +160,6 @@ namespace IEA_Erproject102AA_Main.DepoIslemleri.StokIslemleri
                     }
 
 
-
-
                     alt[i] = new tblStokGirisAlt();
                     alt[i].GenelNo =int.Parse(txtGenelNo.Text) ;
                     alt[i].SiraNo = i + 1;
@@ -178,7 +178,6 @@ namespace IEA_Erproject102AA_Main.DepoIslemleri.StokIslemleri
 
                     //erp.tblStokGirisAlt.Add(alt[i]);
                     //erp.SaveChanges(); //her satır için o anda kayıt yapması totalde
-
 
                 }
             //    erp.tblStokDurum.AddRange(drm);
@@ -228,7 +227,6 @@ namespace IEA_Erproject102AA_Main.DepoIslemleri.StokIslemleri
 
 
 
-
         //sanal buton
         #region Sanal Buton islemleri
         protected override void OnLoad(EventArgs e)
@@ -257,31 +255,61 @@ namespace IEA_Erproject102AA_Main.DepoIslemleri.StokIslemleri
 
         private void btnUrunBul_Click(object sender,EventArgs e)
         {
-
+            //frmStokListesi frm = new frmStokListesi();
+            //frm.ShowDialog();
+            int id = f.StokGirisListesi(true);
+            if (id > 0)
+            {
+                FormAc(id);
+            }
+            Home.Aktarma = -1; //
         }
 
+        private void FormAc(int id)
+        {
+            int i = 0;
+            var kayitBul = erp.tblStokGirisUst.Find(id);
+            //var kayitBul1 = erp.vwStokGiris.First(x => x.Id == id);
+            tblStokGirisUst ust = kayitBul;
+            txtGenelNo.Text = ust.GenelNo.ToString();
+            txtCariGrup.Text = ust.tblCariGruplari.GrupAdi;
+            txtAciklama.Text = ust.Aciklama;
+            txtFaturaNo.Text = ust.FaturaNo;
+            txtCariAdi.Text = ust.tblCariler.CariAdi;
+            if (ust.FaturaTarih != null)
+            {
+                txtGirisTarih.Value = (DateTime)ust.FaturaTarih;
+            }
+            if (ust.GirisTipi != null) txtGirisTipi.SelectedIndex = ust.GirisTipi.Value;
+
+            var alt = erp.tblStokGirisAlt.Where(x => x.GenelNo.ToString() == txtGenelNo.Text);
+            Liste.Rows.Clear();
+           // var alt1 = erp.vwStokGiris.Where(x => x.GenelNo.ToString() == txtGenelNo.Text);
+            foreach (var k in alt)
+            {
+                Liste.Rows.Add();
+                Liste.Rows[i].Cells[0].Value = k.SiraNo;
+                Liste.Rows[i].Cells[1].Value = k.Barkod;
+                Liste.Rows[i].Cells[2].Value = k.UrunKodu;
+                Liste.Rows[i].Cells[3].Value = k.LotSeriNo;
+                Liste.Rows[i].Cells[4].Value = k.Adet;
+                Liste.Rows[i].Cells[5].Value = k.Not;
+                //DateTime a = Convert.ToDateTime(k.UT);
+                Liste.Rows[i].Cells[6].Value = k.UT;
+                Liste.Rows[i].Cells[7].Value = k.SKT;
+                Liste.Rows[i].Cells[8].Value = k.AlisFiyat;
+                Liste.Rows[i].Cells[9].Value = k.Id;
+                i++;
+            }
+
+            Liste.AllowUserToAddRows = false;
+            Liste.ReadOnly = true;
+        }
 
         private void btnYer_Click(object sender, EventArgs e)
         {
-            if (txtCariGrup.Text == "Hastane")
-            {
-                int id = f.HastaneListesi(true);
-                if (id > 0)
-                {
-                    Ac(id);
-                }
-                Home.Aktarma = -1;
-            }
-            else if (txtCariGrup.Text == "Doktor")
-            {
-                int id = f.DoktorlarListesi(true);
-                if (id > 0)
-                {
-                    Ac(id);
-                }
-                Home.Aktarma = -1;
-            }
-            else if (txtCariGrup.Text == "Firma")
+           
+             if (txtCariGrup.Text == "Firma")
             {
                 int id = f.FirmalarListesi(true);
                 if (id > 0)
@@ -290,15 +318,7 @@ namespace IEA_Erproject102AA_Main.DepoIslemleri.StokIslemleri
                 }
                 Home.Aktarma = -1;
             }
-            else if (txtCariGrup.Text == "Personel")
-            {
-                int id = f.PersonellerListesi(true);
-                if (id > 0)
-                {
-                    Ac(id);
-                }
-                Home.Aktarma = -1;
-            }
+          
         }
 
         private void Ac(int id)
@@ -322,33 +342,7 @@ namespace IEA_Erproject102AA_Main.DepoIslemleri.StokIslemleri
         #endregion
 
         #region DataGridView Düzenlemeleri
-        private void dataGridView1_EditingControlShowing(object sender, DataGridViewEditingControlShowingEventArgs e)
-        {
-            try
-            {
-                TextBox txt = e.Control as TextBox;
-                if (Liste.CurrentCell.ColumnIndex == 2 && txt != null) //urun kodunu baz almaya çalısıyoz
-                {
-                    txt.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
-                    txt.AutoCompleteSource = AutoCompleteSource.CustomSource;
-                    txt.AutoCompleteCustomSource.AddRange(MyArray);
-
-                }
-                else if (Liste.CurrentCell.ColumnIndex != 2 && txt != null)
-                {
-                    txt.AutoCompleteMode = AutoCompleteMode.None;
-
-                }
-                TextBox teks = e.Control as TextBox;
-                teks.CharacterCasing = CharacterCasing.Upper;
-
-            }
-            catch (Exception ex)
-            {
-
-                MessageBox.Show(ex.Message);
-            }
-        }
+       
 
         private void Liste_CellEndEdit(object sender, DataGridViewCellEventArgs e)
         {
@@ -394,7 +388,20 @@ namespace IEA_Erproject102AA_Main.DepoIslemleri.StokIslemleri
                     }
                 }
 
-            }
+            
+            if (e.ColumnIndex == 6)
+            {
+                if (Liste.CurrentRow.Cells[6].Value != null)
+                {
+                        string urn = Liste.CurrentRow.Cells[2].Value.ToString();
+                        var lst = (from s in erp.tblUrunler1 where s.UrunKodu == urn select s).FirstOrDefault();
+                        int ayy = Convert.ToInt32( lst.KullanimSuresiAy.Value);
+
+                        DateTime ay = Convert.ToDateTime(Liste.CurrentRow.Cells[6].Value);
+                        Liste.CurrentRow.Cells[7].Value = ay.AddMonths(ayy).ToShortDateString();
+                }
+            } 
+             }
             catch (Exception exx)
             {
 
@@ -410,6 +417,88 @@ namespace IEA_Erproject102AA_Main.DepoIslemleri.StokIslemleri
         private void btnCikis_Click(object sender, EventArgs e)
         {
             Close();
+        }
+
+        private void Liste_EditingControlShowing(object sender, DataGridViewEditingControlShowingEventArgs e)
+        {
+            try
+            {
+                TextBox txt = e.Control as TextBox;
+                if (Liste.CurrentCell.ColumnIndex == 2 && txt != null) //urun kodunu baz almaya çalısıyoz
+                {
+                    txt.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
+                    txt.AutoCompleteSource = AutoCompleteSource.CustomSource;
+                    txt.AutoCompleteCustomSource.AddRange(MyArray);
+
+                }
+                else if (Liste.CurrentCell.ColumnIndex != 2 && txt != null)
+                {
+                    txt.AutoCompleteMode = AutoCompleteMode.None;
+
+                }
+                TextBox teks = e.Control as TextBox;
+                teks.CharacterCasing = CharacterCasing.Upper;
+
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.Message);
+            }
+        }
+        private void KayitIdBul()
+        {
+            secimId =(int) Liste.CurrentRow.Cells[9].Value;
+            if (secimId > 0)
+            {
+                Home.Aktarma = secimId;
+                f.StokGirisGuncelle();
+            }
+        }
+
+        private void ekleToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void guncelleToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            KayitIdBul();
+            Listele();
+
+        }
+
+        private void silToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        void Listele()
+        {
+            ErpProject102Entities db = new ErpProject102Entities();
+            var alt = db.tblStokGirisAlt.Where(x => x.GenelNo.ToString() == txtGenelNo.Text);
+            Liste.Rows.Clear();
+            // var alt1 = erp.vwStokGiris.Where(x => x.GenelNo.ToString() == txtGenelNo.Text);
+            foreach (var k in alt)
+            {
+                int i = 0;
+                Liste.Rows.Add();
+                Liste.Rows[i].Cells[0].Value = k.SiraNo;
+                Liste.Rows[i].Cells[1].Value = k.Barkod;
+                Liste.Rows[i].Cells[2].Value = k.UrunKodu;
+                Liste.Rows[i].Cells[3].Value = k.LotSeriNo;
+                Liste.Rows[i].Cells[4].Value = k.Adet;
+                Liste.Rows[i].Cells[5].Value = k.Not;
+                //DateTime a = Convert.ToDateTime(k.UT);
+                Liste.Rows[i].Cells[6].Value = k.UT;
+                Liste.Rows[i].Cells[7].Value = k.SKT;
+                Liste.Rows[i].Cells[8].Value = k.AlisFiyat;
+                Liste.Rows[i].Cells[9].Value = k.Id;
+                i++;
+            }
+
+            Liste.AllowUserToAddRows = false;
+            Liste.ReadOnly = true;
         }
     }
 }

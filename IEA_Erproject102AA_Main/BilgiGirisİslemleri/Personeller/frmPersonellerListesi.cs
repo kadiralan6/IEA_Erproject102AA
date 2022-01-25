@@ -39,12 +39,13 @@ namespace IEA_Erproject102AA_Main.BilgiGirisİslemleri.Personeller
                        select new
                        {
                            id = s.Id,
-                           PDept = s.tblCariler.YetkiliDep1,
-                           Padi = s.tblCariler.CariAdi,
-                           Ptel = s.tblCariler.CariTel,
-                           Pmail = s.tblCariler.CariMail,
-                           PisG = s.tblCariler.isGiris,
-                           PisC = s.tblCariler.isCikis
+                           dkodu = s.tblCariler.CariKodu,
+                           dadi = s.tblCariler.CariAdi,
+                           dtel = s.tblCariler.CariTel,
+                           dmail = s.tblCariler.CariMail,
+                           dyetcep = s.tblCariler.YetkiliCep1,
+                           dgtarih = s.IsBasiTarih,
+                           dbtarih = s.IsBitisTarih
 
 
                        }).ToList(); //new ihtayç  kadar çekmek için bunları form ekranında bize gözükecek yer kadar yaptık
@@ -54,12 +55,13 @@ namespace IEA_Erproject102AA_Main.BilgiGirisİslemleri.Personeller
                 PerListBilgi.Rows.Add();
                 PerListBilgi.Rows[i].Cells[0].Value = k.id;
                 PerListBilgi.Rows[i].Cells[1].Value = sira;
-                PerListBilgi.Rows[i].Cells[2].Value = k.PDept;
-                PerListBilgi.Rows[i].Cells[3].Value = k.Padi;
-                PerListBilgi.Rows[i].Cells[4].Value = k.Ptel;
-                PerListBilgi.Rows[i].Cells[5].Value = k.Pmail;
-                PerListBilgi.Rows[i].Cells[6].Value = k.PisG;
-                PerListBilgi.Rows[i].Cells[7].Value = k.PisC;
+                PerListBilgi.Rows[i].Cells[2].Value = k.dkodu;
+                PerListBilgi.Rows[i].Cells[3].Value = k.dadi;
+                PerListBilgi.Rows[i].Cells[4].Value = k.dtel;
+                PerListBilgi.Rows[i].Cells[5].Value = k.dyetcep;
+                PerListBilgi.Rows[i].Cells[6].Value = k.dmail;
+                PerListBilgi.Rows[i].Cells[7].Value = k.dgtarih;
+                PerListBilgi.Rows[i].Cells[8].Value = k.dbtarih;
 
                 i++; sira++;
                 }
