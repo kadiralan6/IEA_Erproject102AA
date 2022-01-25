@@ -60,7 +60,6 @@ namespace IEA_Erproject102AA_Main.DepoIslemleri.StokIslemleri
             this.Liste.RowTemplate.Height = 24;
             this.Liste.Size = new System.Drawing.Size(1297, 630);
             this.Liste.TabIndex = 0;
-  
             this.Liste.DoubleClick += new System.EventHandler(this.Liste_DoubleClick);
             // 
             // Id
@@ -119,6 +118,7 @@ namespace IEA_Erproject102AA_Main.DepoIslemleri.StokIslemleri
             this.pnlUst.Name = "pnlUst";
             this.pnlUst.Size = new System.Drawing.Size(1297, 67);
             this.pnlUst.TabIndex = 1;
+            this.pnlUst.Paint += new System.Windows.Forms.PaintEventHandler(this.pnlUst_Paint);
             // 
             // btnCikis
             // 

@@ -87,5 +87,10 @@ namespace IEA_Erproject102AA_Main.DepoIslemleri.StokIslemleri
             }
 
         }
+
+        private void pnlUst_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }
